@@ -1,10 +1,10 @@
-﻿== Kalendář CZ ==
+== Kalendář CZ ==
 Contributors: Webster.K
 Donate link:
 Tags: czech, sidebar, calendar, widget
 Requires at least: 2.5
 Tested up to: 3.3.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 == Description ==
 
@@ -19,9 +19,14 @@ EN: Show the date, time, days to the Christmas and the czech festivals on sideba
 4. You're done!
 
 
-== information about the versions ==
+== Informace o verzích ==
 
+1.0.1
+ - Přidáno nastavení (možnost pořadí)
+ - Přidáno, kdo má zítra svátek
+ - Přidána možnost skrýt, co se na web nehodí
+ - Přidána možnost editace v administraci
 
 1.0.0
- - First version
- - time, date, days to the Christmas, festivals
+ - První verze
+ - Datum, čas, dní do Vánoc, svátky
