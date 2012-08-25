@@ -1,10 +1,9 @@
-<div class="wrap">
-<h2>Kalendář CZ</h2>
-<?php
+/*
+Plugin Name: Kalendář CZ
+Plugin URI: http://phgame.cz
+Description: Zobrazuje hodiny, čas, svátky a počet dní do vánoc.
+Version: 1.0.3
+Author: Webster.K
+Author URI: http://phgame.cz
+*/
 
-echo "Tento plugin je zatím ve vývoji, od verze 1.0.1 zde bude možnost uspořádání jednotlivých polí a pár dalších nastavení, doufám, že se Vám můj plugin líbí. <br>
-Webster.K (administrator serveru <a href=http://phgame.cz> PHGame.cz</a>)";
-
-?>
-
-</div>
