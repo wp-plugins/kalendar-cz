@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget
 Requires at least: 2.5
 Tested up to: 3.3.2
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 
 == Description ==
 
@@ -13,13 +13,23 @@ EN: Show the date, time, days to the Christmas and the czech festivals on sideba
 
 == Installation ==
 
-1. Upload the plugin to your blog, or install via plugin management.
+CZ:
+1. Uploadnout plugin na Váš blok, nebo nainstalovat přes správce pluginů.
+2. Aktivovat.
+3. Přidat widget do Vašeho sidebaru.
+4. Toď vše!
+
+EN:
+1. Upload the plugin to your blog or install via plugin management.
 2. Activate it. 
 3. Add the widget to your sidebar.
 4. You're done!
 
 
 == Informace o verzích ==
+1.0.6
+ - Opravena chyba u státních svátků - korektní zobrazení (Dnes má svátek Štědrý den opraveno na Dnes je Štědrý den)
+
 1.0.5
  - Opravena chyba při aktualizaci ze starší verze
 

@@ -3,7 +3,7 @@
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc.
-Version: 1.0.5
+Version: 1.0.6
 Author: Webster.K
 Author URI: http://phgame.cz
 */
@@ -87,6 +87,9 @@ $d=getdate();
 $datum=date("d. m. Y");
 $yday=$d["yday"];
 
+$pred_text_dnes = $yday;
+$pred_text_zitra = $yday + 1;
+
 if (($yday>58) && ((date("Y")%4)!=0)) $yday++; // Detekce prestupneho roku
 $svatek_now=$svatky[$yday];
 if (($yday==58) && ((date("Y")%4)!=0)) $yday++; // Korektni vypis zitrejsiho svatku pri neprestupnem roku
@@ -110,6 +113,26 @@ $radku = mysql_num_rows($data);
 //$radku = $wpdb->get_row($data);
 
 
+
+
+
+//pokud nekdo nahodou svatek nema, viz statni svatek, DNES
+if($pred_text_dnes==0 OR $$pred_text_dnes==5 OR $pred_text_dnes==121 OR $pred_text_dnes==186 OR $pred_text_dnes==187 OR $pred_text_dnes==301 OR $pred_text_dnes==306 OR $pred_text_dnes==358 OR $pred_text_dnes==359 OR $pred_text_dnes==360 OR $pred_text_dnes==366){
+	$vypis_pred_svatek = "Dnes je ";
+}else{
+	$vypis_pred_svatek = "Svátek má ";
+}
+
+//pokud nekdo nahodou svatek nema, viz statni svatek ZITRA
+if($pred_text_zitra==0 OR $pred_text_zitra==5 OR $pred_text_zitra==121 OR $pred_text_zitra==186 OR $pred_text_zitra==187 OR $pred_text_zitra==301 OR $pred_text_zitra==306 OR $pred_text_zitra==358 OR $pred_text_zitra==359 OR $pred_text_zitra==360 OR $pred_text_zitra==366){
+	$vypis_pred_svatek_a = "Zítra je ";
+}else{
+	$vypis_pred_svatek_a = "Zítra má svátek ";
+}
+
+
+
+
 while ($dat = mysql_fetch_array($data)):
 	if($dat["typ"]=="cas"){
 		$output .= aktualni_cas();
@@ -124,13 +147,13 @@ while ($dat = mysql_fetch_array($data)):
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="svatek"){
-		$output .= "Svátek má " . $svatek_now ."<br/>\n";
+		$output .= $vypis_pred_svatek . $svatek_now ."<br/>\n";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="svatek_zitra"){
-		$output .= "Zítra má svátek " . $svatek_now_next;
+		$output .= $vypis_pred_svatek_a . $svatek_now_next;
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}

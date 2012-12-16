@@ -87,6 +87,10 @@ echo '</table><input type="submit" name="kalendar-cz-submit1" value=" Uložit " 
 
 ?>
 
-<p>* Hodnotu pro odsazení zadávejte pouze jako číslo</p>
+<p>* Hodnotu pro odsazení zadávejte pouze jako číslo</p><br><br>
+
+
+<p>* Plugin je stále ve vývoji, oficiální stránka: <a href="http://phgame.cz/kalendar">http://phgame.cz/kalendar</a></p>
+<p>* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v našich silách, rozšíření o které žádáte v nové verzi naleznete</p>
 
 </div>
