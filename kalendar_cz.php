@@ -2,8 +2,8 @@
 /*
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
-Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc.
-Version: 1.0.8
+Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc či konce roku.
+Version: 1.1.0
 Author: Webster.K
 Author URI: http://phgame.cz
 */
@@ -11,6 +11,8 @@ Author URI: http://phgame.cz
 
 function kalendar_cz_install(){
 global $wpdb;
+mysql_query("DROP TABLE IF EXISTS ".$wpdb->prefix."plugin_websters_kalendar ");
+
 mysql_query("CREATE TABLE IF NOT EXISTS ".$wpdb->prefix."plugin_websters_kalendar (id INT NOT NULL AUTO_INCREMENT, cislo INT(1) NOT NULL,typ VARCHAR(15) NOT NULL,zobrazit BOOL NOT NULL,PRIMARY KEY (id))");
 
 $existuje = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar");
@@ -20,6 +22,7 @@ while ($radek = mysql_fetch_array($existuje)):
 	elseif(isset($radek["typ"]) && $radek["typ"]=="svatek"){$exi_svatek=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="svatek_zitra"){$exi_svatek_zitra=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="vanoce"){$exi_vanoce=1;}
+	elseif(isset($radek["typ"]) && $radek["typ"]=="novy_rok"){$exi_novy_rok=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="odsazeni_vrsek"){$exi_odsazeni_vrsek=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="centrovani"){$exi_centrovani=1;}
 endwhile;
@@ -37,6 +40,9 @@ endwhile;
 	}
 	if(isset($exi_vanoce) && $exi_vanoce==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('5', 'vanoce', '1')");
+	}
+	if(isset($exi_novy_rok) && $exi_novy_rok==1){}else{
+		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('6', 'novy_rok', '1')");
 	}	
 	if(isset($exi_odsazeni_vrsek) && $exi_odsazeni_vrsek==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('0', 'odsazeni_vrsek', '0')");
@@ -106,10 +112,10 @@ $output .= "$before";
 global $wpdb;
 
 
-$data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE zobrazit=1 AND typ='cas' OR zobrazit=1 AND typ='den' OR zobrazit=1 AND typ='svatek' OR zobrazit=1 AND typ='svatek_zitra' OR zobrazit=1 AND typ='vanoce' ORDER BY cislo ASC");
+$data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE zobrazit=1 AND typ='cas' OR zobrazit=1 AND typ='den' OR zobrazit=1 AND typ='svatek' OR zobrazit=1 AND typ='svatek_zitra' OR zobrazit=1 AND typ='vanoce'  OR zobrazit=1 AND typ='novy_rok' ORDER BY cislo ASC");
 $radku = mysql_num_rows($data);
 
-//$data = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' ORDER BY cislo ASC");
+//$data = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' OR typ='novy_rok' ORDER BY cislo ASC");
 //$radku = $wpdb->get_row($data);
 
 
@@ -164,6 +170,13 @@ while ($dat = mysql_fetch_array($data)):
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
+	elseif($dat["typ"]=="novy_rok"){
+		$output .= get_novy_rok();
+		if($radku!=$dat["cislo"]){
+			$output .= "$after\n$before";
+		}else{$output .= "$after\n";}
+	}
+
 endwhile;
 
 return $output;
@@ -226,7 +239,7 @@ function get_vanoce(){
 $dnesek = time();
 $den_od_zacatku_roku = Date(z, $dnesek);
 if(Date(Y, $dnesek)%4==0){$pocet_dni = 366;}else{$pocet_dni = 365;}
-$den_do_vanoc = $pocet_dni - 9 - $den_od_zacatku_roku;
+$den_do_vanoc = $pocet_dni - 8 - $den_od_zacatku_roku;
 if($den_do_vanoc<0){
 		$novy_dny = $pocet_dni + $den_do_vanoc;
 		return "Do Vánoc zbývá " . $novy_dny . " dnů";
@@ -242,6 +255,25 @@ elseif($den_do_vanoc>1 AND $den_do_vanoc<5){
 	}
 else{
 		return "Do Vánoc zbývá " . $den_do_vanoc . " dnů";
+	}
+}
+
+function get_novy_rok(){
+$dnesek = time();
+$den_od_zacatku_roku = Date(z, $dnesek);
+if(Date(Y, $dnesek)%4==0){$pocet_dni = 366;}else{$pocet_dni = 365;}
+$den_do_konce_roku = $pocet_dni - $den_od_zacatku_roku - 1;
+if($den_do_konce_roku==0){
+		return "Dnes je konec roku";
+	}
+elseif($den_do_konce_roku==1){
+	return "Do konce roku zbývá jeden den";
+	}
+elseif($den_do_konce_roku>1 AND $den_do_konce_roku<5){
+	return "Do konce roku zbývají " . $den_do_konce_roku . " dny";
+	}
+else{
+		return "Do konce roku zbývá " . $den_do_konce_roku . " dnů";
 	}
 }
 

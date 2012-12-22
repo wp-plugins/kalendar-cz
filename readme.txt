@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget
 Requires at least: 2.5
 Tested up to: 3.3.2
-Stable tag: 1.0.8
+Stable tag: 1.1.0
 
 == Description ==
 
@@ -27,6 +27,10 @@ EN:
 
 
 == Informace o verzích ==
+1.0.9
+ + Přidán počet dní do konce roku
+ + Po aktualizaci na novější verzi je plugin vždy v defaultním nastavení (z důvodu aktualizace přes několik verzí)
+
 1.0.8
  - Opravena chyba, po Vánocích to do nových Vánoc ukazovalo Více jak 365 dní, nyní je vše v pořádku
 
