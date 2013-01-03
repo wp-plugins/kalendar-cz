@@ -1,10 +1,10 @@
-== Kalendář CZ ==
+﻿== Kalendář CZ ==
 Contributors: Webster.K
 Donate link:
 Tags: czech, sidebar, calendar, widget
 Requires at least: 2.5
 Tested up to: 3.3.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 == Description ==
 
@@ -27,7 +27,11 @@ EN:
 
 
 == Informace o verzích ==
-1.0.9
+1.1.1
+ - opravena chyba při aktivaci
+ + přidán screenshot
+
+1.1.0
  + Přidán počet dní do konce roku
  + Po aktualizaci na novější verzi je plugin vždy v defaultním nastavení (z důvodu aktualizace přes několik verzí)
 

@@ -1,15 +1,3 @@
-<?php
-/*
-Plugin Name: Kalendář CZ
-Plugin URI: http://phgame.cz
-Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc či konce roku.
-Version: 1.1.0
-Author: Webster.K
-Author URI: http://phgame.cz
-*/
-?>
-
-
 <div class="wrap">
 <h2>Kalendář CZ</h2>
 <?php
