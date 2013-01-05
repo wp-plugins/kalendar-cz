@@ -1,7 +1,7 @@
-﻿== Kalendář CZ ==
+﻿=== Kalendář CZ ===
 Contributors: Webster.K
 Donate link:
-Tags: czech, sidebar, calendar, widget
+Tags: czech, sidebar, calendar, widget, kalendář, Český kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.3.2
 Stable tag: 1.1.1
@@ -25,8 +25,12 @@ EN:
 3. Add the widget to your sidebar.
 4. You're done!
 
+== Screenshots ==
 
-== Informace o verzích ==
+1. Jak plugin vypadá
+
+
+== Changelog ==
 1.1.1
  - opravena chyba při aktivaci
  + přidán screenshot
