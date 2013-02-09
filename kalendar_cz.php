@@ -3,7 +3,7 @@
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc či konce roku.
-Version: 1.1.1
+Version: 1.2.0
 Author: Webster.K
 Author URI: http://phgame.cz
 */
@@ -13,7 +13,7 @@ function kalendar_cz_install(){
 global $wpdb;
 mysql_query("DROP TABLE IF EXISTS ".$wpdb->prefix."plugin_websters_kalendar ");
 
-mysql_query("CREATE TABLE IF NOT EXISTS ".$wpdb->prefix."plugin_websters_kalendar (id INT NOT NULL AUTO_INCREMENT, cislo INT(1) NOT NULL,typ VARCHAR(15) NOT NULL,zobrazit BOOL NOT NULL,PRIMARY KEY (id))");
+mysql_query("CREATE TABLE IF NOT EXISTS ".$wpdb->prefix."plugin_websters_kalendar (id INT NOT NULL AUTO_INCREMENT, cislo INT(1) NOT NULL,typ VARCHAR(20) NOT NULL,zobrazit BOOL NOT NULL,hodnota VARCHAR(15) NOT NULL,PRIMARY KEY (id))");
 
 $existuje = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar");
 while ($radek = mysql_fetch_array($existuje)):
@@ -23,8 +23,11 @@ while ($radek = mysql_fetch_array($existuje)):
 	elseif(isset($radek["typ"]) && $radek["typ"]=="svatek_zitra"){$exi_svatek_zitra=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="vanoce"){$exi_vanoce=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="novy_rok"){$exi_novy_rok=1;}
+	elseif(isset($radek["typ"]) && $radek["typ"]=="sudy_lichy_tyden"){$exi_sudy_lichy_tyden=1;}
+	elseif(isset($radek["typ"]) && $radek["typ"]=="cislo_tydne"){$exi_cislo_tydne=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="odsazeni_vrsek"){$exi_odsazeni_vrsek=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="centrovani"){$exi_centrovani=1;}
+	elseif(isset($radek["typ"]) && $radek["typ"]=="barva_text"){$exi_barva=1;}
 endwhile;
 	if(isset($exi_cas) && $exi_cas==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('1', 'cas', '1')");
@@ -43,18 +46,30 @@ endwhile;
 	}
 	if(isset($exi_novy_rok) && $exi_novy_rok==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('6', 'novy_rok', '1')");
+	}
+	if(isset($exi_sudy_lichy_tyden) && $exi_sudy_lichy_tyden==1){}else{
+		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('7', 'sudy_lichy_tyden', '1')");
+	}
+	if(isset($exi_sudy_lichy_tyden) && $exi_sudy_lichy_tyden==1){}else{
+		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('8', 'cislo_tydne', '1')");
+	}
+	if(isset($exi_barva) && $exi_barva==1){}else{
+		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit,hodnota) VALUES ('0', 'barva_text', '0','#000000')");
 	}	
 	if(isset($exi_odsazeni_vrsek) && $exi_odsazeni_vrsek==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('0', 'odsazeni_vrsek', '0')");
 	}	
 	if(isset($exi_centrovani) && $exi_centrovani==1){}else{
-		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('0', 'centrovani', '1')");
+		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit, hodnota) VALUES ('0', 'centrovani', '0','left')");
 	}	
 }
 
+
+
+
 add_action('activate_kalendar-cz/kalendar_cz.php', 'kalendar_cz_install');
 
-function get_kalendar_cz($before = '', $after = '') {
+function get_kalendar_cz($before = '', $after = '',$barva_textu) {
 $svatky	= array('Nový rok','Karina','Radmila','Diana','Dalimil','Tři králové','Vilma','Čestmír','Vladan',
 'Břetislav','Bohdana','Pravoslav','Edita','Radovan','Alice','Ctirad','Drahoslav','Vladislav','Doubravka',
 'Ilona','Běla','Slavomír','Zdeněk','Milena','Miloš','Zora','Ingrid','Otýlie','Zdislava','Robin','Marika',
@@ -112,7 +127,7 @@ $output .= "$before";
 global $wpdb;
 
 
-$data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE zobrazit=1 AND typ='cas' OR zobrazit=1 AND typ='den' OR zobrazit=1 AND typ='svatek' OR zobrazit=1 AND typ='svatek_zitra' OR zobrazit=1 AND typ='vanoce'  OR zobrazit=1 AND typ='novy_rok' ORDER BY cislo ASC");
+$data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE zobrazit=1 AND typ='cas' OR zobrazit=1 AND typ='den' OR zobrazit=1 AND typ='svatek' OR zobrazit=1 AND typ='svatek_zitra' OR zobrazit=1 AND typ='vanoce'  OR zobrazit=1 AND typ='novy_rok' OR zobrazit=1 AND typ='sudy_lichy_tyden' OR zobrazit=1 AND typ='cislo_tydne' ORDER BY cislo ASC");
 $radku = mysql_num_rows($data);
 
 //$data = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' OR typ='novy_rok' ORDER BY cislo ASC");
@@ -141,42 +156,58 @@ if($pred_text_zitra==0 OR $pred_text_zitra==5 OR $pred_text_zitra==121 OR $pred_
 
 while ($dat = mysql_fetch_array($data)):
 	if($dat["typ"]=="cas"){
-		$output .= aktualni_cas();
+		$output .= "<font color=\"". $barva_textu ."\">" . aktualni_cas() . "</font>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="den"){
-		$output .= get_my_today_date();
+		$output .= "<font color=\"". $barva_textu ."\">" . get_my_today_date() . "</font>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="svatek"){
-		$output .= $vypis_pred_svatek . $svatek_now ."<br/>\n";
+		$output .= "<font color=\"". $barva_textu ."\">" . $vypis_pred_svatek . $svatek_now  . "</font>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="svatek_zitra"){
-		$output .= $vypis_pred_svatek_a . $svatek_now_next;
+		$output .= "<font color=\"". $barva_textu ."\">" . $vypis_pred_svatek_a . $svatek_now_next . "</font>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="vanoce"){
-		$output .= get_vanoce();
+		$output .= "<font color=\"". $barva_textu ."\">" . get_vanoce() . "</font>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="novy_rok"){
-		$output .= get_novy_rok();
+		$output .= "<font color=\"". $barva_textu ."\">" . get_novy_rok() . "</font>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
-
+	elseif($dat["typ"]=="sudy_lichy_tyden"){
+		$output .= "<font color=\"". $barva_textu ."\">" . get_sudy_lichy_tyden() . "</font>";
+		if($radku!=$dat["cislo"]){
+			$output .= "$after\n$before";
+		}else{$output .= "$after\n";}
+	}
+	elseif($dat["typ"]=="cislo_tydne"){
+		$output .= "<font color=\"". $barva_textu ."\">" . get_cislo_tydne() . "</font>";
+		if($radku!=$dat["cislo"]){
+			$output .= "$after\n$before";
+		}else{$output .= "$after\n";}
+	}
+	
+	
+	
+	
+	
 endwhile;
 
 return $output;
@@ -277,17 +308,26 @@ else{
 	}
 }
 
+function get_sudy_lichy_tyden(){
+	$dnesek = StrFTime("%W",time());
+	if($dnesek%2==0){return "Je sudý týden";}else{return "Je lichý týden";}
+}
+
+function get_cislo_tydne(){
+	$dnesek = StrFTime("%W",time());
+	$samotny_cislo = split("0",$dnesek);
+	return "Je " . $samotny_cislo[1] . ". týden";
+}
 
 function widget_kalendar_cz($args) {
 global $wpdb;
-	$nastaveni = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='odsazeni_vrsek' OR typ='centrovani'");
+	$nastaveni = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='odsazeni_vrsek' OR typ='centrovani' OR typ='barva_text'");
 	while ($kalendar_cz_nastav = mysql_fetch_array($nastaveni)):
-		if(isset($kalendar_cz_nastav["typ"]) && $kalendar_cz_nastav["typ"] == "odsazeni_vrsek"){$kalendar_cz_vrsek = $kalendar_cz_nastav["zobrazit"];}
+		if(isset($kalendar_cz_nastav["typ"]) && $kalendar_cz_nastav["typ"] == "odsazeni_vrsek"){$kalendar_cz_vrsek = $kalendar_cz_nastav["hodnota"];}
 		if(isset($kalendar_cz_nastav["typ"]) && $kalendar_cz_nastav["typ"] == "centrovani"){
-			if($kalendar_cz_nastav["zobrazit"]==1){$kalendar_cz_centrovani = "left";}
-			elseif($kalendar_cz_nastav["zobrazit"]==2){$kalendar_cz_centrovani = "center";}
-			elseif($kalendar_cz_nastav["zobrazit"]==3){$kalendar_cz_centrovani = "right";}
+			$kalendar_cz_centrovani = $kalendar_cz_nastav["hodnota"];
 		}
+		if(isset($kalendar_cz_nastav["typ"]) &&  $kalendar_cz_nastav["typ"] == "barva_text"){$kalendar_cz_barva = $kalendar_cz_nastav["hodnota"];}
 	endwhile;
 
 	extract($args);
@@ -295,7 +335,7 @@ global $wpdb;
 	echo "$before_title\n";
 	echo "Dnes" . zpetny_odkaz();
 	echo "$after_title\n";
-	echo "<div id=\"odsazeni\" style=\"text-align:" . $kalendar_cz_centrovani . ";padding-top:". $kalendar_cz_vrsek ."px \">" . get_kalendar_cz('<ul><li>','</li></ul>') . "</div>";
+	echo "<div id=\"odsazeni\" style=\"text-align:" . $kalendar_cz_centrovani . ";padding-top:". $kalendar_cz_vrsek ."px \">" . get_kalendar_cz('<ul><li>','</li></ul>',$kalendar_cz_barva) . "</div>";
 	echo "$after_widget\n";
 }
 

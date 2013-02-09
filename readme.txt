@@ -3,8 +3,8 @@ Contributors: Webster.K
 Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, Český kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
-Tested up to: 3.3.2
-Stable tag: 1.1.1
+Tested up to: 3.5
+Stable tag: 1.2.0
 
 == Description ==
 
@@ -31,6 +31,12 @@ EN:
 
 
 == Changelog ==
+1.2.0
++ přidána možnost nastavit barvu textu
+   + přidány barvy černá, modrá, červená, zelená, bílá, růžová, fialová, žlutá, světle šedá, tmavě šedá, oranžová a světle modrá
++ přidána možnost zobrazit lichý/sudý týden
++ přidána možnost zobrazit kolikátý je týden od začátku roku
+
 1.1.1
  - opravena chyba při aktivaci
  + přidán screenshot
