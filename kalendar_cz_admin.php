@@ -128,6 +128,7 @@ endwhile;
 
 <p>* Plugin je stále ve vývoji, oficiální stránka: <a href="http://phgame.cz/kalendar">http://phgame.cz/kalendar</a></p>
 <p>* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v našich silách, rozšíření o které žádáte v nové verzi naleznete</p>
+<p>* Po aktualizaci pluginu doporučujeme plugin deaktivovat a znovu aktivovat (slouží pro správné načtení pluginu), bez tohoto "restartu" nemusí fungovat správně</p>
 
 
 <?php
