@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, Český kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.5
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 
 == Description ==
 
@@ -27,10 +27,16 @@ EN:
 
 == Screenshots ==
 
-1. Jak plugin vypadá
+1. Jak plugin vypadá od verze 1.0.6
+2. Jak plugin vypadá od verze 1.2.0
 
 
 == Changelog ==
+1.2.1
+- opravena chyba v času (na některých serverech šel čas o několik hodin jinak), nyní je čas stejný, jako v nastavení WP
++ plugin po sobě od teď "uklízí", po deaktivaci tedy nezůstávají data zbytečně v databázi
++ přídána kontrola komponent pluginu, pokud pluginu při aktualizaci/aktivaci něco chybí, nahlásí, a navede, co s problémem udělat
+
 1.2.0
 + přidána možnost nastavit barvu textu
    + přidány barvy černá, modrá, červená, zelená, bílá, růžová, fialová, žlutá, světle šedá, tmavě šedá, oranžová a světle modrá

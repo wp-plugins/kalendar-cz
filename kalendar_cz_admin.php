@@ -1,8 +1,17 @@
 <div class="wrap">
 <h2>Kalendář CZ</h2>
 <?php
+//ověření, zda jsou opravdu všechny data v tabulce s kalendářem a zda není načtena starší verze
+
+$cislo = mysql_num_rows(mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar"));
+if($cislo<11){echo "Wordpress při aktivaci pluginu provedl neplatnou operaci, pro správnou funkci pluginu jej deaktivujte a znovu aktivujte, pokud se chyba neodstraní, dejte nám o ní vědet na <a href=\"http://phgame.cz/kalendar\">PHGame.cz</a>";}
+else{
+?>
 
 
+<?php
+
+//po odeslani formulare
 if (isset($_POST['kalendar-cz-submit'])) {
 global $wpdb;
 if(isset($_POST["zobrazeno1"])){$zob1=1;}else{$zob1=0;}
@@ -32,6 +41,16 @@ mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["barva_textu"] . "' WHERE typ='barva_text'");
 echo "Uloženo<br>";
 }
+
+//po odeslani formulare
+//hlavicka s casem
+$cas_ted = date_i18n(get_option('time_format'));
+$prevod_hodiny = split('\.', $cas_ted);
+$prevod_datum = split('\.', date_i18n( get_option('date_format')));
+$caaaa = MkTime ($prevod_hodiny[0], $prevod_hodiny[1], 0, $prevod_datum[1], $prevod_datum[0], $prevod_datum[2]) . "<br>";
+echo "Aktuální datum a čas: " . Date ("d. n. Y, H:i", MkTime ($prevod_hodiny[0], $prevod_hodiny[1], 0, $prevod_datum[1], $prevod_datum[0], $prevod_datum[2])) . "<br>";
+echo "<p>* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress správně (nastavení/obecné), nesprávné zobrazení času může být nesprávným nastavením časové zóny</p>";
+//hlavicka s casem
 
 
 
@@ -128,10 +147,9 @@ endwhile;
 
 <p>* Plugin je stále ve vývoji, oficiální stránka: <a href="http://phgame.cz/kalendar">http://phgame.cz/kalendar</a></p>
 <p>* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v našich silách, rozšíření o které žádáte v nové verzi naleznete</p>
-<p>* Po aktualizaci pluginu doporučujeme plugin deaktivovat a znovu aktivovat (slouží pro správné načtení pluginu), bez tohoto "restartu" nemusí fungovat správně</p>
 
 
 <?php
-echo the_time('G:i');
+}
 ?>
 </div>

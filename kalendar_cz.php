@@ -2,8 +2,8 @@
 /*
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
-Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc či konce roku.
-Version: 1.2.0
+Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc či konce roku, sudý/lichý týden, číslo týdne.
+Version: 1.2.1
 Author: Webster.K
 Author URI: http://phgame.cz
 */
@@ -64,10 +64,22 @@ endwhile;
 	}	
 }
 
-
-
-
 add_action('activate_kalendar-cz/kalendar_cz.php', 'kalendar_cz_install');
+
+function kalendar_cz_uninstall(){
+	global $wpdb;
+	mysql_query("DROP TABLE IF EXISTS ".$wpdb->prefix."plugin_websters_kalendar ");
+}
+
+add_action('deactivate_kalendar-cz/kalendar_cz.php', 'kalendar_cz_uninstall');
+
+
+
+
+
+
+
+
 
 function get_kalendar_cz($before = '', $after = '',$barva_textu) {
 $svatky	= array('Nový rok','Karina','Radmila','Diana','Dalimil','Tři králové','Vilma','Čestmír','Vladan',
@@ -104,7 +116,7 @@ $svatky	= array('Nový rok','Karina','Radmila','Diana','Dalimil','Tři králové
 'Natálie','Šimon','Vlasta','Adam a Eva , Štědrý den','1. svátek vánoční','Štěpán , 2. svátek vánoční','Žaneta','Bohumila',
 'Judita','David','Silvestr','Nový rok');
 
-$d=getdate();
+$d=getdate(get_presny_cas_z_wp());
 $datum=date("d. m. Y");
 $yday=$d["yday"];
 
@@ -203,11 +215,7 @@ while ($dat = mysql_fetch_array($data)):
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
-	
-	
-	
-	
-	
+
 endwhile;
 
 return $output;
@@ -217,12 +225,20 @@ function zpetny_odkaz() {
 	return '<div id="zpetny_odkaz" style="visibility: hidden;width:1px;height:1px"><a href="http://phgame.cz">PHGame.cz</a></div>';
 }
 
+function get_presny_cas_z_wp(){
+$prevod_hodiny = split('\.', date_i18n(get_option('time_format')));
+$prevod_datum = split('\.', date_i18n( get_option('date_format')));
+return MkTime ($prevod_hodiny[0], $prevod_hodiny[1], 0, $prevod_datum[1], $prevod_datum[0], $prevod_datum[2]) . "<br>";
+}
+
+
+
 
 
 function get_my_today_date() {
     $mesic = array('','ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince');
     $den = array('Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota');
-    $d=getdate();
+    $d=getdate(get_presny_cas_z_wp());
     /* Not used
     $y=$d["year"];
     $timecz = Time();
