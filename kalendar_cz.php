@@ -3,7 +3,7 @@
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc či konce roku, sudý/lichý týden, číslo týdne.
-Version: 1.2.1
+Version: 1.2.2
 Author: Webster.K
 Author URI: http://phgame.cz
 */
@@ -331,8 +331,15 @@ function get_sudy_lichy_tyden(){
 
 function get_cislo_tydne(){
 	$dnesek = StrFTime("%W",time());
-	$samotny_cislo = split("0",$dnesek);
-	return "Je " . $samotny_cislo[1] . ". týden";
+	if($dnesek <=9){
+		
+		$samotny_cislo = split("0",$dnesek);
+		return "Je " . $samotny_cislo[1] . ". týden";
+	}else{
+		return "Je " . $dnesek . ". týden";
+		
+	}
+	
 }
 
 function widget_kalendar_cz($args) {
