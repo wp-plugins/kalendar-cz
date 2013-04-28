@@ -32,6 +32,7 @@ EN:
 
 
 == Changelog ==
+
 1.2.2
 - opravena chyba ve výpisu čísla týdne
 
