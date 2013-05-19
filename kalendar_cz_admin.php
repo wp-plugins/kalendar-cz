@@ -33,12 +33,28 @@ mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET cislo=".$_POST
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET cislo=".$_POST["poradi8"].",zobrazit=".$zob8." WHERE id=8");
 echo "Uloženo<br>";
 }
+
+
 if (isset($_POST['kalendar-cz-submit1'])) {
 global $wpdb;
 
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["centrovani"] . "' WHERE typ='centrovani'");
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["odsazeni"] . "' WHERE typ='odsazeni_vrsek'");
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["barva_textu"] . "' WHERE typ='barva_text'");
+echo "Uloženo<br>";
+}
+
+
+if (isset($_POST['kalendar-cz-submit2'])) {
+
+
+
+$real_file = dirname(__FILE__) . '/kalendar_cz_style.css';
+$text = $_POST["cssko"];
+$soubor = fopen($real_file, "w");
+fwrite($soubor, $text);
+fclose($soubor);
+
 echo "Uloženo<br>";
 }
 
@@ -55,8 +71,9 @@ echo "<p>* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress s
 
 
 
-
-echo '<form method="post"><table><tr><td>Pořadí</td><td>Typ</td><td>Zobrazení</td></tr>';
+echo "<fieldset style=\"border:1px solid black;\"><legend style=\"margin-left:20px;\">Co se bude na webu vypisovat</legend><blockquote>";
+echo '<form method="post">
+<table><tr><td>Pořadí</td><td>Typ</td><td>Zobrazení</td></tr>';
 $data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' OR typ='novy_rok' OR typ='sudy_lichy_tyden' ORDER BY cislo ASC");
 while ($a=mysql_fetch_array($data)):
 
@@ -77,18 +94,22 @@ echo '</td></tr>';
 endwhile;
 echo '</table><input type="submit" name="kalendar-cz-submit" value=" Uložit " /></form>';
 ?>
+
 <p>* Pořadí je určené číslem, každé číslo může být pouze jednou, jinak plugin nebude správně fungovat.</p>
 <p>* Zaškrtnuté pole znamená, že je daný řádek vidět, nezaškrtnutý, že není.</p>
 <p>* Pokud nebudete některou z částí (datum, čas, svátky...) používat, přesuňte jí na konec, u některých témat tímto předejdete chybám</p>
+</blockquote>
+</fieldset>
 
 
 
 
 
 
-
-<br><br>
-
+<br>
+<fieldset style="border:1px solid black;">
+<legend  style="margin-left:20px;">Jednoduché nastavení vzhledu</legend>
+<blockquote>
 <?php
 /*
 $nastaveni = mysql_num_rows(mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='centrovani' OR typ='odsazeni_vrsek'"));
@@ -138,18 +159,49 @@ if($a1["typ"]=="barva_text"){
 endwhile;
 ?>
 </table><input type="submit" name="kalendar-cz-submit1" value=" Uložit " /></form>
+<p>* Hodnotu pro odsazení zadávejte pouze jako číslo</p>
+</blockquote>
+</fieldset>
 
 
 
+<br>
+<fieldset style="border:1px solid black;">
+<legend style="margin-left:20px;">Vlastní CSS styly</legend>
+<blockquote>
+<table><tr><td>
+#kalendar_cz_cas<br>#kalendar_cz_datum<br>#kalendar_cz_svatek_dnes<br>#kalendar_cz_svatek_zitra<br>#kalendar_cz_vanoce<br>#kalendar_cz_novy_rok<br>#kalendar_cz_ls_tyden<br>#kalendar_cz_cislo_tydne
+</td><td>
+<?php
 
-<p>* Hodnotu pro odsazení zadávejte pouze jako číslo</p><br><br>
 
 
+$real_file = dirname(__FILE__) . '/kalendar_cz_style.css';
+if(is_writeable($real_file)){
+$soubor = fopen($real_file, 'r');
+//$text = fread($soubor, 10);
+//$text = file_get_contents($soubor);
+$radek = "";
+while(!feof($soubor)){
+	$radek .= fgets($soubor, 4096); 
+	}
+fclose($soubor);
+echo "<form method=\"post\"><textarea name=\"cssko\" cols=\"100\" rows=\"8\">" . $radek . "</textarea>";
+}else{echo "Do souboru nelze zapisovat";}
+?>
+</td></tr></table>
+<input type="submit" name="kalendar-cz-submit2" value=" Uložit " />
+</form>
+<p>* Tato funkce je pro skušené uživatele</p>
+<p>* Styly uvedené nalevo jsou ty, které jasně definují jednotlivé řádky pluginu</p>
+</blockquote>
+</fieldset><br>
 <p>* Plugin je stále ve vývoji, oficiální stránka: <a href="http://phgame.cz/kalendar">http://phgame.cz/kalendar</a></p>
 <p>* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v našich silách, rozšíření o které žádáte v nové verzi naleznete</p>
 
-
 <?php
+
+
 }
 ?>
 </div>

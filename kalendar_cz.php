@@ -2,8 +2,8 @@
 /*
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
-Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek a počet dní do Vánoc či konce roku, sudý/lichý týden, číslo týdne.
-Version: 1.2.2
+Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku.
+Version: 1.3.0
 Author: Webster.K
 Author URI: http://phgame.cz
 */
@@ -13,7 +13,7 @@ function kalendar_cz_install(){
 global $wpdb;
 mysql_query("DROP TABLE IF EXISTS ".$wpdb->prefix."plugin_websters_kalendar ");
 
-mysql_query("CREATE TABLE IF NOT EXISTS ".$wpdb->prefix."plugin_websters_kalendar (id INT NOT NULL AUTO_INCREMENT, cislo INT(1) NOT NULL,typ VARCHAR(20) NOT NULL,zobrazit BOOL NOT NULL,hodnota VARCHAR(15) NOT NULL,PRIMARY KEY (id))");
+mysql_query("CREATE TABLE IF NOT EXISTS ".$wpdb->prefix."plugin_websters_kalendar (id INT NOT NULL AUTO_INCREMENT, cislo INT(1) NOT NULL,typ VARCHAR(20) NOT NULL,zobrazit BOOL NOT NULL,hodnota LONGTEXT NOT NULL,PRIMARY KEY (id))");
 
 $existuje = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar");
 while ($radek = mysql_fetch_array($existuje)):
@@ -168,49 +168,49 @@ if($pred_text_zitra==0 OR $pred_text_zitra==5 OR $pred_text_zitra==121 OR $pred_
 
 while ($dat = mysql_fetch_array($data)):
 	if($dat["typ"]=="cas"){
-		$output .= "<font color=\"". $barva_textu ."\">" . aktualni_cas() . "</font>";
+		$output .= "<div id=\"kalendar_cz_cas\"><font color=\"". $barva_textu ."\">" . aktualni_cas() . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="den"){
-		$output .= "<font color=\"". $barva_textu ."\">" . get_my_today_date() . "</font>";
+		$output .= "<div id=\"kalendar_cz_datum\"><font color=\"". $barva_textu ."\">" . get_my_today_date() . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="svatek"){
-		$output .= "<font color=\"". $barva_textu ."\">" . $vypis_pred_svatek . $svatek_now  . "</font>";
+		$output .= "<div id=\"kalendar_cz_svatek_dnes\"><font color=\"". $barva_textu ."\">" . $vypis_pred_svatek . $svatek_now  . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="svatek_zitra"){
-		$output .= "<font color=\"". $barva_textu ."\">" . $vypis_pred_svatek_a . $svatek_now_next . "</font>";
+		$output .= "<div id=\"kalendar_cz_svatek_zitra\"><font color=\"". $barva_textu ."\">" . $vypis_pred_svatek_a . $svatek_now_next . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="vanoce"){
-		$output .= "<font color=\"". $barva_textu ."\">" . get_vanoce() . "</font>";
+		$output .= "<div id=\"kalendar_cz_vanoce\"><font color=\"". $barva_textu ."\">" . get_vanoce() . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="novy_rok"){
-		$output .= "<font color=\"". $barva_textu ."\">" . get_novy_rok() . "</font>";
+		$output .= "<div id=\"kalendar_cz_novy_rok\"><font color=\"". $barva_textu ."\">" . get_novy_rok() . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="sudy_lichy_tyden"){
-		$output .= "<font color=\"". $barva_textu ."\">" . get_sudy_lichy_tyden() . "</font>";
+		$output .= "<div id=\"kalendar_cz_ls_tyden\"><font color=\"". $barva_textu ."\">" . get_sudy_lichy_tyden() . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="cislo_tydne"){
-		$output .= "<font color=\"". $barva_textu ."\">" . get_cislo_tydne() . "</font>";
+		$output .= "<div id=\"kalendar_cz_cislo_tydne\"><font color=\"". $barva_textu ."\">" . get_cislo_tydne() . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
@@ -383,7 +383,10 @@ function kalendar_cz_admin_actions()
  
 add_action('admin_menu', 'kalendar_cz_admin_actions');
 
-
-
 add_action("plugins_loaded", "init_kalendar_cz_widget");
+
+$css_file = plugins_url( 'kalendar_cz_style.css', __FILE__ );
+wp_register_style('kalendar_cz', $css_file, false, '1.2.2');
+wp_enqueue_style('kalendar_cz'); 
+
 ?>

@@ -4,15 +4,13 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, Český kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.5
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 
 == Description ==
-
-CZ: Zobrazuje datum, čas, počet dní do Vánoc a české svátky (jmeniny) v postranním panelu (možno použít jako widget).
+CZ: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku. To vše v postranním panelu (možno použít jako widget).
 EN: Show the date, time, days to the Christmas and the czech festivals on sidebar (you can use it as widget).
 
 == Installation ==
-
 CZ:
 1. Uploadnout plugin na Váš blok, nebo nainstalovat přes správce pluginů.
 2. Aktivovat.
@@ -26,12 +24,14 @@ EN:
 4. You're done!
 
 == Screenshots ==
-
 1. Jak plugin vypadá od verze 1.0.6
 2. Jak plugin vypadá od verze 1.2.0
 
 
 == Changelog ==
+1.3.0
++ přidána možnost vlastního CSS stylu
++ každý řádek má nyní jedinečný CSS identifikátor pro zjednodušenou práci při stylování
 
 1.2.2
 - opravena chyba ve výpisu čísla týdne
