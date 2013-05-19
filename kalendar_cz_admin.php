@@ -187,7 +187,7 @@ while(!feof($soubor)){
 	}
 fclose($soubor);
 echo "<form method=\"post\"><textarea name=\"cssko\" cols=\"100\" rows=\"8\">" . $radek . "</textarea>";
-}else{echo "Do souboru nelze zapisovat";}
+}else{echo "Do souboru stylů není možné zapisovat, vyhledejte prosím soubor kalendar_cz_style.css ve složce pluginu (wp-content/plugins/kalendar-cz/) a změňte práva souboru na 775, aby bylo možné do něj zapisovat";}
 ?>
 </td></tr></table>
 <input type="submit" name="kalendar-cz-submit2" value=" Uložit " />
