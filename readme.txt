@@ -31,10 +31,12 @@ EN:
 == Changelog ==
 1.3.1
 - Opravena chyba v administraci pluginu, plugin nyní říká, co udělat v případě, že do souboru není možné zapisovat
+- lehce změněna podoba administrace pluginu, aby se v ní lépe orientovalo
 
 1.3.0
 + přidána možnost vlastního CSS stylu
 + každý řádek má nyní jedinečný CSS identifikátor pro zjednodušenou práci při stylování
++ do pluginu byl přidán CSS editor, pro rychlou práci se styly
 
 1.2.2
 - opravena chyba ve výpisu čísla týdne
