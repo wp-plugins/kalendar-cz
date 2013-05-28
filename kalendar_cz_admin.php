@@ -74,7 +74,7 @@ echo "<p>* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress s
 echo "<fieldset style=\"border:1px solid black;\"><legend style=\"margin-left:20px;\">Co se bude na webu vypisovat</legend><blockquote>";
 echo '<form method="post">
 <table><tr><td>Pořadí</td><td>Typ</td><td>Zobrazení</td></tr>';
-$data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' OR typ='novy_rok' OR typ='sudy_lichy_tyden' ORDER BY cislo ASC");
+$data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' OR typ='novy_rok' OR typ='sudy_lichy_tyden' OR typ='cislo_tydne' ORDER BY cislo ASC");
 while ($a=mysql_fetch_array($data)):
 
 echo '<tr><td><input type="text" value="' . $a["cislo"] . '" name="poradi'. $a["id"] .'"></td><td>';

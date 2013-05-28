@@ -3,7 +3,7 @@
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku.
-Version: 1.3.1
+Version: 1.3.2
 Author: Webster.K
 Author URI: http://phgame.cz
 */
