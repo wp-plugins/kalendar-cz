@@ -3,7 +3,7 @@
 Plugin Name: Kalendář CZ
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku.
-Version: 1.3.2
+Version: 1.3.3
 Author: Webster.K
 Author URI: http://phgame.cz
 */
@@ -62,6 +62,7 @@ endwhile;
 	if(isset($exi_centrovani) && $exi_centrovani==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit, hodnota) VALUES ('0', 'centrovani', '0','left')");
 	}	
+	kalendar_cz_stats();
 }
 
 add_action('activate_kalendar-cz/kalendar_cz.php', 'kalendar_cz_install');
@@ -72,14 +73,6 @@ function kalendar_cz_uninstall(){
 }
 
 add_action('deactivate_kalendar-cz/kalendar_cz.php', 'kalendar_cz_uninstall');
-
-
-
-
-
-
-
-
 
 function get_kalendar_cz($before = '', $after = '',$barva_textu) {
 $svatky	= array('Nový rok','Karina','Radmila','Diana','Dalimil','Tři králové','Vilma','Čestmír','Vladan',
@@ -132,22 +125,15 @@ if (($yday==58) && ((date("Y")%4)!=0)) $yday++; // Korektni vypis zitrejsiho sva
 $svatek_now_next_next=$svatky[$yday%366+2];
 */
 
-
-
 // Output:
 $output .= "$before";
 global $wpdb;
-
 
 $data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE zobrazit=1 AND typ='cas' OR zobrazit=1 AND typ='den' OR zobrazit=1 AND typ='svatek' OR zobrazit=1 AND typ='svatek_zitra' OR zobrazit=1 AND typ='vanoce'  OR zobrazit=1 AND typ='novy_rok' OR zobrazit=1 AND typ='sudy_lichy_tyden' OR zobrazit=1 AND typ='cislo_tydne' ORDER BY cislo ASC");
 $radku = mysql_num_rows($data);
 
 //$data = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' OR typ='novy_rok' ORDER BY cislo ASC");
 //$radku = $wpdb->get_row($data);
-
-
-
-
 
 //pokud nekdo nahodou svatek nema, viz statni svatek, DNES
 if($pred_text_dnes==0 OR $$pred_text_dnes==5 OR $pred_text_dnes==121 OR $pred_text_dnes==186 OR $pred_text_dnes==187 OR $pred_text_dnes==301 OR $pred_text_dnes==306 OR $pred_text_dnes==358 OR $pred_text_dnes==359 OR $pred_text_dnes==360 OR $pred_text_dnes==366){
@@ -162,9 +148,6 @@ if($pred_text_zitra==0 OR $pred_text_zitra==5 OR $pred_text_zitra==121 OR $pred_
 }else{
 	$vypis_pred_svatek_a = "Zítra má svátek ";
 }
-
-
-
 
 while ($dat = mysql_fetch_array($data)):
 	if($dat["typ"]=="cas"){
@@ -231,10 +214,6 @@ $prevod_datum = split('\.', date_i18n( get_option('date_format')));
 return MkTime ($prevod_hodiny[0], $prevod_hodiny[1], 0, $prevod_datum[1], $prevod_datum[0], $prevod_datum[2]) . "<br>";
 }
 
-
-
-
-
 function get_my_today_date() {
     $mesic = array('','ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince');
     $den = array('Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota');
@@ -280,7 +259,6 @@ casovac()
 
 
 }
-
 
 function get_vanoce(){
 $dnesek = time();
@@ -340,6 +318,14 @@ function get_cislo_tydne(){
 		
 	}
 	
+}
+
+function kalendar_cz_stats(){
+$adresa_serveru = $_SERVER['SERVER_NAME'];
+$verze_pluginu = "1.3.3";
+$datum_instalace = time();
+
+file_get_contents('http://www.data.phgame.cz/stats/kalendar-cz/send.php?server=' . $adresa_serveru . '&verze=' . $verze_pluginu . '&instalace=' . $datum_instalace . ''); 
 }
 
 function widget_kalendar_cz($args) {

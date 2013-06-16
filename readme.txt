@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, Český kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.5
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 
 == Description ==
 CZ: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku. To vše v postranním panelu (možno použít jako widget).
@@ -29,6 +29,9 @@ EN:
 
 
 == Changelog ==
+1.3.3
+- Opravena chyba při výpisu některých jmen
+
 1.3.2
 - Opravena chyba v administraci (nyní lze nastavit, zda se bude zobrazovat číslo týdne či nikoli)
 
