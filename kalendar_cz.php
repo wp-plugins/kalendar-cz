@@ -62,7 +62,7 @@ endwhile;
 	if(isset($exi_centrovani) && $exi_centrovani==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit, hodnota) VALUES ('0', 'centrovani', '0','left')");
 	}	
-	kalendar_cz_stats();
+
 }
 
 add_action('activate_kalendar-cz/kalendar_cz.php', 'kalendar_cz_install');
@@ -320,13 +320,7 @@ function get_cislo_tydne(){
 	
 }
 
-function kalendar_cz_stats(){
-$adresa_serveru = $_SERVER['SERVER_NAME'];
-$verze_pluginu = "1.3.3";
-$datum_instalace = time();
 
-file_get_contents('http://www.data.phgame.cz/stats/kalendar-cz/send.php?server=' . $adresa_serveru . '&verze=' . $verze_pluginu . '&instalace=' . $datum_instalace . ''); 
-}
 
 function widget_kalendar_cz($args) {
 global $wpdb;
