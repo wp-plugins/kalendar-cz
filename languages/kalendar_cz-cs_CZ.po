@@ -1,0 +1,1844 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kalendar_cz-1.3.3\n"
+"POT-Creation-Date: 2013-08-21 13:42+0100\n"
+"PO-Revision-Date: 2013-09-23 16:43+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: kalendar_cz.php:140
+msgid "Dnes je "
+msgstr "Dnes je "
+
+#: kalendar_cz.php:142
+msgid "Svátek má  "
+msgstr "Svátek má  "
+
+#: kalendar_cz.php:254
+msgid "Aktuální čas: "
+msgstr "Aktuální čas: "
+
+#: kalendar_cz.php:308
+msgid "Je sudý týden"
+msgstr "Je sudý týden"
+
+#: kalendar_cz.php:308
+msgid "Je lichý týden"
+msgstr "Je lichý týden"
+
+#: kalendar_cz.php:316
+msgid "Je "
+msgstr "Je "
+
+#: kalendar_cz.php:316
+msgid "týden"
+msgstr ". týden"
+
+#: kalendar_cz.php:640
+msgid "Do Vánoc zbývá "
+msgstr "Do Vánoc zbývá "
+
+#: kalendar_cz.php:643
+msgid "Dnes jsou Vánoce"
+msgstr "Dnes jsou Vánoce"
+
+#: kalendar_cz.php:646
+msgid "Do Vánoc zbývá jeden den"
+msgstr "Do Vánoc zbývá jeden den"
+
+#: kalendar_cz.php:646
+msgid " dnů"
+msgstr " dnů"
+
+#: kalendar_cz.php:646
+msgid " dny"
+msgstr " dny"
+
+#: kalendar_cz.php:646
+msgid "Do Vánoc zbývají "
+msgstr "Do Vánoc zbývají "
+
+#: kalendar_cz.php:646
+msgid "Dnes je konec roku"
+msgstr "Dnes je konec roku"
+
+#: kalendar_cz.php:646
+msgid "Do konce roku zbývá jeden den"
+msgstr "Do konce roku zbývá jeden den"
+
+#: kalendar_cz.php:646
+msgid "Do konce roku zbývají "
+msgstr "Do konce roku zbývají "
+
+#: kalendar_cz.php:646
+msgid "Do konce roku zbývá "
+msgstr "Do konce roku zbývá "
+
+#: kalendar_cz.php:mesice
+msgid "ledna"
+msgstr "ledna"
+
+#: kalendar_cz.php:mesice
+msgid "února"
+msgstr "února"
+
+#: kalendar_cz.php:mesice
+msgid "března"
+msgstr "března"
+
+#: kalendar_cz.php:mesice
+msgid "dubna"
+msgstr "dubna"
+
+#: kalendar_cz.php:mesice
+msgid "května"
+msgstr "května"
+
+#: kalendar_cz.php:mesice
+msgid "června"
+msgstr "června"
+
+#: kalendar_cz.php:mesice
+msgid "července"
+msgstr "července"
+
+#: kalendar_cz.php:mesice
+msgid "srpna"
+msgstr "srpna"
+
+#: kalendar_cz.php:mesice
+msgid "září"
+msgstr "září"
+
+#: kalendar_cz.php:mesice
+msgid "října"
+msgstr "října"
+
+#: kalendar_cz.php:mesice
+msgid "listopadu"
+msgstr "listopadu"
+
+#: kalendar_cz.php:mesice
+msgid "prosince"
+msgstr "prosince"
+
+#: kalendar_cz.php:dny
+msgid "Pondělí"
+msgstr "Pondělí"
+
+#: kalendar_cz.php:dny
+msgid "Úterý"
+msgstr "Úterý"
+
+#: kalendar_cz.php:dny
+msgid "Středa"
+msgstr "Středa"
+
+#: kalendar_cz.php:dny
+msgid "Čtvrtek"
+msgstr "Čtvrtek"
+
+#: kalendar_cz.php:dny
+msgid "Pátek"
+msgstr "Pátek"
+
+#: kalendar_cz.php:dny
+msgid "Sobota"
+msgstr "Sobota"
+
+#: kalendar_cz.php:dny
+msgid "Neděle"
+msgstr "Neděle"
+
+#: kalendar_cz_admin.php:6
+msgid "Kalendář CZ"
+msgstr "Kalendář CZ"
+
+#: kalendar_cz_admin.php:11
+msgid ""
+"Wordpress při aktivaci pluginu provedl neplatnou operaci, pro správnou "
+"funkci pluginu jej deaktivujte a znovu aktivujte, pokud se chyba neodstraní, "
+"dejte nám o ní vědet na <a href=\"http://phgame.cz/kalendar\">PHGame.cz</a>"
+msgstr ""
+"Wordpress při aktivaci pluginu provedl neplatnou operaci, pro správnou "
+"funkci pluginu jej deaktivujte a znovu aktivujte, pokud se chyba neodstraní, "
+"dejte nám o ní vědet na <a href=\"http://phgame.cz/kalendar\">PHGame.cz</a>"
+
+#: kalendar_cz_admin.php:48
+msgid "Uloženo"
+msgstr "Uloženo"
+
+#: kalendar_cz_admin.php:71
+msgid "Aktuální datum a čas:"
+msgstr "Aktuální datum a čas:"
+
+#: kalendar_cz_admin.php:73
+msgid ""
+"* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress správně "
+"(nastavení/obecné), nesprávné zobrazení času může být nesprávným nastavením "
+"časové zóny"
+msgstr ""
+"* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress správně "
+"(nastavení/obecné), nesprávné zobrazení času může být nesprávným nastavením "
+"časové zóny"
+
+#: kalendar_cz_admin.php:79
+msgid "Co se bude na webu vypisovat"
+msgstr "Co se bude na webu vypisovat"
+
+#: kalendar_cz_admin.php:81
+msgid "Pořadí"
+msgstr "Pořadí"
+
+#: kalendar_cz_admin.php:81
+msgid "Typ"
+msgstr "Typ"
+
+#: kalendar_cz_admin.php:81
+msgid "Zobrazení"
+msgstr "Zobrazení"
+
+#: kalendar_cz_admin.php:86
+msgid "Zobrazí aktuální čas"
+msgstr "Zobrazí aktuální čas"
+
+#: kalendar_cz_admin.php:87
+msgid "Zobrazí aktuální datum"
+msgstr "Zobrazí aktuální datum"
+
+#: kalendar_cz_admin.php:88
+msgid "Zobrazí, kdo má dnes svátek"
+msgstr "Zobrazí, kdo má dnes svátek"
+
+#: kalendar_cz_admin.php:89
+msgid "Zobrazí, kdo má zítra svátek"
+msgstr "Zobrazí, kdo má zítra svátek"
+
+#: kalendar_cz_admin.php:90
+msgid "Zobrazí, kolik dní zbývá do Vánoc"
+msgstr "Zobrazí, kolik dní zbývá do Vánoc"
+
+#: kalendar_cz_admin.php:91
+msgid "Zobrazí, kolik dní zbývá do konce roku"
+msgstr "Zobrazí, kolik dní zbývá do konce roku"
+
+#: kalendar_cz_admin.php:92
+msgid "Zobrazí sudý/lichý týden"
+msgstr "Zobrazí sudý/lichý týden"
+
+#: kalendar_cz_admin.php:93
+msgid "Zobrazí číslo týdne"
+msgstr "Zobrazí číslo týdne"
+
+#: kalendar_cz_admin.php:100
+msgid " Uložit "
+msgstr " Uložit "
+
+#: kalendar_cz_admin.php:103
+msgid ""
+"* Pořadí je určené číslem, každé číslo může být pouze jednou, jinak plugin "
+"nebude správně fungovat."
+msgstr ""
+"* Pořadí je určené číslem, každé číslo může být pouze jednou, jinak plugin "
+"nebude správně fungovat."
+
+#: kalendar_cz_admin.php:104
+msgid ""
+"* Zaškrtnuté pole znamená, že je daný řádek vidět, nezaškrtnutý, že není."
+msgstr ""
+"* Zaškrtnuté pole znamená, že je daný řádek vidět, nezaškrtnutý, že není."
+
+#: kalendar_cz_admin.php:105
+msgid ""
+"* Pokud nebudete některou z částí (datum, čas, svátky...) používat, přesuňte "
+"jí na konec, u některých témat tímto předejdete chybám"
+msgstr ""
+"* Pokud nebudete některou z částí (datum, čas, svátky...) používat, přesuňte "
+"jí na konec, u některých témat tímto předejdete chybám"
+
+#: kalendar_cz_admin.php:116
+msgid "Jednoduché nastavení vzhledu"
+msgstr "Jednoduché nastavení vzhledu"
+
+#: kalendar_cz_admin.php:131
+msgid "Odsazení od shora:"
+msgstr "Odsazení od shora:"
+
+#: kalendar_cz_admin.php:135
+msgid "Umístění textu:"
+msgstr "Umístění textu:"
+
+#: kalendar_cz_admin.php:145
+msgid "Barva textu:"
+msgstr "Barva textu:"
+
+#: kalendar_cz_admin.php:137
+msgid "levá strana"
+msgstr "levá strana"
+
+#: kalendar_cz_admin.php:138
+msgid "střed"
+msgstr "střed"
+
+#: kalendar_cz_admin.php:139
+msgid "pravá strana"
+msgstr "pravá strana"
+
+#: kalendar_cz_admin.php:148
+msgid "černá"
+msgstr "černá"
+
+#: kalendar_cz_admin.php:149
+msgid "modrá"
+msgstr "modrá"
+
+#: kalendar_cz_admin.php:150
+msgid "červená"
+msgstr "červená"
+
+#: kalendar_cz_admin.php:151
+msgid "zelená"
+msgstr "zelená"
+
+#: kalendar_cz_admin.php:152
+msgid "bílá"
+msgstr "bílá"
+
+#: kalendar_cz_admin.php:153
+msgid "růžová"
+msgstr "růžová"
+
+#: kalendar_cz_admin.php:154
+msgid "fialová"
+msgstr "fialová"
+
+#: kalendar_cz_admin.php:155
+msgid "žlutá"
+msgstr "žlutá"
+
+#: kalendar_cz_admin.php:156
+msgid "světle šedá"
+msgstr "světle šedá"
+
+#: kalendar_cz_admin.php:157
+msgid "tmavě šedá"
+msgstr "tmavě šedá"
+
+#: kalendar_cz_admin.php:158
+msgid "oranžová"
+msgstr "oranžová"
+
+#: kalendar_cz_admin.php:159
+msgid "světe modrá"
+msgstr "světe modrá"
+
+#: kalendar_cz_admin.php:167
+msgid "* Hodnotu pro odsazení zadávejte pouze jako číslo"
+msgstr "* Hodnotu pro odsazení zadávejte pouze jako číslo"
+
+#: kalendar_cz_admin.php:175
+msgid "Vlastní CSS styly"
+msgstr "Vlastní CSS styly"
+
+#: kalendar_cz_admin.php:195
+msgid ""
+"Do souboru stylů není možné zapisovat, vyhledejte prosím soubor "
+"kalendar_cz_style.css ve složce pluginu (wp-content/plugins/kalendar-cz/) a "
+"změňte práva souboru na 775, aby bylo možné do něj zapisovat"
+msgstr ""
+"Do souboru stylů není možné zapisovat, vyhledejte prosím soubor "
+"kalendar_cz_style.css ve složce pluginu (wp-content/plugins/kalendar-cz/) a "
+"změňte práva souboru na 775, aby bylo možné do něj zapisovat"
+
+#: kalendar_cz_admin.php:200
+msgid "* Tato funkce je pro zkušené uživatele"
+msgstr "* Tato funkce je pro zkušené uživatele"
+
+#: kalendar_cz_admin.php:201
+msgid ""
+"* Styly uvedené nalevo jsou ty, které jasně definují jednotlivé řádky pluginu"
+msgstr ""
+"* Styly uvedené nalevo jsou ty, které jasně definují jednotlivé řádky pluginu"
+
+#: kalendar_cz_admin.php:204
+msgid "* Plugin je stále ve vývoji, oficiální stránka:"
+msgstr "* Plugin je stále ve vývoji, oficiální stránka:"
+
+#: kalendar_cz_admin.php:205
+msgid ""
+"* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v "
+"našich silách, rozšíření o které žádáte v nové verzi naleznete"
+msgstr ""
+"* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v "
+"našich silách, rozšíření o které žádáte v nové verzi naleznete"
+
+#: 1. 1
+msgid "Nový rok"
+msgstr "Nový rok"
+
+#: 2. 1
+msgid "Karina"
+msgstr "Karina"
+
+#: 3. 1
+msgid "Radmila"
+msgstr "Radmila"
+
+#: 4. 1
+msgid "Diana"
+msgstr "Diana"
+
+#: 5. 1
+msgid "Dalimil"
+msgstr "Dalimil"
+
+#: 6. 1
+msgid "Tři králové"
+msgstr "Tři králové"
+
+#: 7. 1
+msgid "Vilma"
+msgstr "Vilma"
+
+#: 8. 1
+msgid "Čestmír"
+msgstr "Čestmír"
+
+#: 9. 1
+msgid "Vladan"
+msgstr "Vladan"
+
+#: 10. 1
+msgid "Břetislav"
+msgstr "Břetislav"
+
+#: 11. 1
+msgid "Bohdana"
+msgstr "Bohdana"
+
+#: 12. 1
+msgid "Pravoslav"
+msgstr "Pravoslav"
+
+#: 13. 1
+msgid "Edita"
+msgstr "Edita"
+
+#: 14. 1
+msgid "Radovan"
+msgstr "Radovan"
+
+#: 15. 1
+msgid "Alice"
+msgstr "Alice"
+
+#: 16. 1
+msgid "Ctirad"
+msgstr "Ctirad"
+
+#: 17. 1
+msgid "Drahoslav"
+msgstr "Drahoslav"
+
+#: 18. 1
+msgid "Vladislav"
+msgstr "Vladislav"
+
+#: 19. 1
+msgid "Doubravka"
+msgstr "Doubravka"
+
+#: 20. 1
+msgid "Ilona"
+msgstr "Ilona"
+
+#: 21. 1
+msgid "Běla"
+msgstr "Běla"
+
+#: 22. 1
+msgid "Slavomír"
+msgstr "Slavomír"
+
+#: 23. 1
+msgid "Zdeněk"
+msgstr "Zdeněk"
+
+#: 24. 1
+msgid "Milena"
+msgstr "Milena"
+
+#: 25. 1
+msgid "Miloš"
+msgstr "Miloš"
+
+#: 26. 1
+msgid "Zora"
+msgstr "Zora"
+
+#: 27. 1
+msgid "Ingrid"
+msgstr "Ingrid"
+
+#: 28. 1
+msgid "Otýlie"
+msgstr "Otýlie"
+
+#: 29. 1
+msgid "Zdislava"
+msgstr "Zdislava"
+
+#: 30. 1
+msgid "Robin"
+msgstr "Robin"
+
+#: 31. 1
+msgid "Marika"
+msgstr "Marika"
+
+#: 1. 2
+msgid "Hynek"
+msgstr "Hynek"
+
+#: 2. 2
+msgid "Nela a Hromnice"
+msgstr "Nela a Hromnice"
+
+#: 3. 2
+msgid "Blažej"
+msgstr "Blažej"
+
+#: 4. 2
+msgid "Jarmila"
+msgstr "Jarmila"
+
+#: 5. 2
+msgid "Dobromila"
+msgstr "Dobromila"
+
+#: 6. 2
+msgid "Vanda"
+msgstr "Vanda"
+
+#: 7. 2
+msgid "Veronika"
+msgstr "Veronika"
+
+#: 8. 2
+msgid "Milada"
+msgstr "Milada"
+
+#: 9. 2
+msgid "Apolena"
+msgstr "Apolena"
+
+#: 10. 2
+msgid "Mojmír"
+msgstr "Mojmír"
+
+#: 11. 2
+msgid "Božena"
+msgstr "Božena"
+
+#: 12. 2
+msgid "Slavěna"
+msgstr "Slavěna"
+
+#: 13. 2
+msgid "Věnceslav"
+msgstr "Věnceslav"
+
+#: 14. 2
+msgid "Valentýn"
+msgstr "Valentýn"
+
+#: 15. 2
+msgid "Jiřina"
+msgstr "Jiřina"
+
+#: 16. 2
+msgid "Ljuba"
+msgstr "Ljuba"
+
+#: 17. 2
+msgid "Miloslava"
+msgstr "Miloslava"
+
+#: 18. 2
+msgid "Gizela"
+msgstr "Gizela"
+
+#: 19. 2
+msgid "Patrik"
+msgstr "Patrik"
+
+#: 20. 2
+msgid "Oldřich"
+msgstr "Oldřich"
+
+#: 21. 2
+msgid "Lenka"
+msgstr "Lenka"
+
+#: 22. 2
+msgid "Petr"
+msgstr "Petr"
+
+#: 23. 2
+msgid "Svatopluk"
+msgstr "Svatopluk"
+
+#: 24. 2
+msgid "Matěj"
+msgstr "Matěj"
+
+#: 25. 2
+msgid "Liliana"
+msgstr "Liliana"
+
+#: 26. 2
+msgid "Dorota"
+msgstr "Dorota"
+
+#: 27. 2
+msgid "Alexandr"
+msgstr "Alexandr"
+
+#: 28. 2
+msgid "Lumír"
+msgstr "Lumír"
+
+#: 29. 2
+msgid "Horymír"
+msgstr "Horymír"
+
+#: 1. 3
+msgid "Bedřich"
+msgstr "Bedřich"
+
+#: 2. 3
+msgid "Anežka"
+msgstr "Anežka"
+
+#: 3. 3
+msgid "Kamil"
+msgstr "Kamil"
+
+#: 4. 3
+msgid "Stela"
+msgstr "Stela"
+
+#: 5. 3
+msgid "Kazimír"
+msgstr "Kazimír"
+
+#: 6. 3
+msgid "Miroslav"
+msgstr "Miroslav"
+
+#: 7. 3
+msgid "Tomáš"
+msgstr "Tomáš"
+
+#: 8. 3
+msgid "Gabriela"
+msgstr "Gabriela"
+
+#: 9. 3
+msgid "Františka"
+msgstr "Františka"
+
+#: 10. 3
+msgid "Viktorie"
+msgstr "Viktorie"
+
+#: 11. 3
+msgid "Anděla"
+msgstr "Anděla"
+
+#: 12. 3
+msgid "Řehoř"
+msgstr "Řehoř"
+
+#: 13. 3
+msgid "Růžena"
+msgstr "Růžena"
+
+#: 14. 3
+msgid "Rút a Matylda"
+msgstr "Rút a Matylda"
+
+#: 15. 3
+msgid "Ida"
+msgstr "Ida"
+
+#: 16. 3
+msgid "Elena a Herbert"
+msgstr "Elena a Herbert"
+
+#: 17. 3
+msgid "Vlastimil"
+msgstr "Vlastimil"
+
+#: 18. 3
+msgid "Eduard"
+msgstr "Eduard"
+
+#: 19. 3
+msgid "Josef"
+msgstr "Josef"
+
+#: 20. 3
+msgid "Světlana"
+msgstr "Světlana"
+
+#: 21. 3
+msgid "Radek"
+msgstr "Radek"
+
+#: 22. 3
+msgid "Leona"
+msgstr "Leona"
+
+#: 23. 3
+msgid "Ivona"
+msgstr "Ivona"
+
+#: 24. 3
+msgid "Gabriel"
+msgstr "Gabriel"
+
+#: 25. 3
+msgid "Marián"
+msgstr "Marián"
+
+#: 26. 3
+msgid "Emanuel"
+msgstr "Emanuel"
+
+#: 27. 3
+msgid "Dita"
+msgstr "Dita"
+
+#: 28. 3
+msgid "Soňa"
+msgstr "Soňa"
+
+#: 29. 3
+msgid "Taťána"
+msgstr "Taťána"
+
+#: 30. 3
+msgid "Arnošt"
+msgstr "Arnošt"
+
+#: 31. 3
+msgid "Kvido"
+msgstr "Kvido"
+
+#: 1. 4
+msgid "Hugo"
+msgstr "Hugo"
+
+#: 2. 4
+msgid "Erika"
+msgstr "Erika"
+
+#: 3. 4
+msgid "Richard"
+msgstr "Richard"
+
+#: 4. 4
+msgid "Ivana"
+msgstr "Ivana"
+
+#: 5. 4
+msgid "Miroslava"
+msgstr "Miroslava"
+
+#: 6. 4
+msgid "Vendula"
+msgstr "Vendula"
+
+#: 7. 4
+msgid "Heřman a Hermína"
+msgstr "Heřman a Hermína"
+
+#: 8. 4
+msgid "Ema"
+msgstr "Ema"
+
+#: 9. 4
+msgid "Dušan"
+msgstr "Dušan"
+
+#: 10. 4
+msgid "Darja"
+msgstr "Darja"
+
+#: 11. 4
+msgid "Izabela"
+msgstr "Izabela"
+
+#: 12. 4
+msgid "Julius"
+msgstr "Julius"
+
+#: 13. 4
+msgid "Aleš"
+msgstr "Aleš"
+
+#: 14. 4
+msgid "Vincenc"
+msgstr "Vincenc"
+
+#: 15. 4
+msgid "Anastázie"
+msgstr "Anastázie"
+
+#: 16. 4
+msgid "Irena"
+msgstr "Irena"
+
+#: 17. 4
+msgid "Rudolf"
+msgstr "Rudolf"
+
+#: 18. 4
+msgid "Valérie"
+msgstr "Valérie"
+
+#: 19. 4
+msgid "Rostislav"
+msgstr "Rostislav"
+
+#: 20. 4
+msgid "Marcela"
+msgstr "Marcela"
+
+#: 21. 4
+msgid "Alexandra"
+msgstr "Alexandra"
+
+#: 22. 4
+msgid "Evžénie"
+msgstr "Evžénie"
+
+#: 23. 4
+msgid "Vojtěch"
+msgstr "Vojtěch"
+
+#: 24. 4
+msgid "Jiří"
+msgstr "Jiří"
+
+#: 25. 4
+msgid "Marek"
+msgstr "Marek"
+
+#: 26. 4
+msgid "Oto"
+msgstr "Oto"
+
+#: 27. 4
+msgid "Jaroslav"
+msgstr "Jaroslav"
+
+#: 28. 4
+msgid "Vlastislav"
+msgstr "Vlastislav"
+
+#: 29. 4
+msgid "Robert"
+msgstr "Robert"
+
+#: 30. 4
+msgid "Blahoslav"
+msgstr "Blahoslav"
+
+#: 1. 5
+msgid "Svátek práce"
+msgstr "Svátek práce"
+
+#: 2. 5
+msgid "Zikmund"
+msgstr "Zikmund"
+
+#: 3. 5
+msgid "Alexej"
+msgstr "Alexej"
+
+#: 4. 5
+msgid "Květoslav"
+msgstr "Květoslav"
+
+#: 5. 5
+msgid "Klaudie"
+msgstr "Klaudie"
+
+#: 6. 5
+msgid "Radoslav"
+msgstr "Radoslav"
+
+#: 7. 5
+msgid "Stanislav"
+msgstr "Stanislav"
+
+#: 8. 5
+msgid "Statní svátek - Ukončení II. světové války"
+msgstr "Statní svátek - Ukončení II. světové války"
+
+#: 9. 5
+msgid "Ctibor"
+msgstr "Ctibor"
+
+#: 10. 5
+msgid "Blažena"
+msgstr "Blažena"
+
+#: 11. 5
+msgid "Svatava"
+msgstr "Svatava"
+
+#: 12. 5
+msgid "Pankrác"
+msgstr "Pankrác"
+
+#: 13. 5
+msgid "Servác"
+msgstr "Servác"
+
+#: 14. 5
+msgid "Bonifác"
+msgstr "Bonifác"
+
+#: 15. 5
+msgid "Žofie"
+msgstr "Žofie"
+
+#: 16. 5
+msgid "Přemysl"
+msgstr "Přemysl"
+
+#: 17. 5
+msgid "Aneta"
+msgstr "Aneta"
+
+#: 18. 5
+msgid "Nataša"
+msgstr "Nataša"
+
+#: 19. 5
+msgid "Ivo"
+msgstr "Ivo"
+
+#: 20. 5
+msgid "Zbyšek"
+msgstr "Zbyšek"
+
+#: 21. 5
+msgid "Monika"
+msgstr "Monika"
+
+#: 22. 5
+msgid "Emil"
+msgstr "Emil"
+
+#: 23. 5
+msgid "Vladimír"
+msgstr "Vladimír"
+
+#: 24. 5
+msgid "Jana"
+msgstr "Jana"
+
+#: 25. 5
+msgid "Viola"
+msgstr "Viola"
+
+#: 26. 5
+msgid "Filip"
+msgstr "Filip"
+
+#: 27. 5
+msgid "Valdemar"
+msgstr "Valdemar"
+
+#: 28. 5
+msgid "Vilém"
+msgstr "Vilém"
+
+#: 29. 5
+msgid "Maxim"
+msgstr "Maxim"
+
+#: 30. 5
+msgid "Ferdinand"
+msgstr "Ferdinand"
+
+#: 31. 5
+msgid "Kamila"
+msgstr "Kamila"
+
+#: 1. 6
+msgid "Laura"
+msgstr "Laura"
+
+#: 2. 6
+msgid "Jarmil"
+msgstr "Jarmil"
+
+#: 3. 6
+msgid "Tamara"
+msgstr "Tamara"
+
+#: 4. 6
+msgid "Dalibor"
+msgstr "Dalibor"
+
+#: 5. 6
+msgid "Dobroslav"
+msgstr "Dobroslav"
+
+#: 6. 6
+msgid "Norbert"
+msgstr "Norbert"
+
+#: 7. 6
+msgid "Iveta"
+msgstr "Iveta"
+
+#: 8. 6
+msgid "Medard"
+msgstr "Medard"
+
+#: 9. 6
+msgid "Stanislava"
+msgstr "Stanislava"
+
+#: 10. 6
+msgid "Gita"
+msgstr "Gita"
+
+#: 11. 6
+msgid "Bruno"
+msgstr "Bruno"
+
+#: 12. 6
+msgid "Antonie"
+msgstr "Antonie"
+
+#: 13. 6
+msgid "Antonín"
+msgstr "Antonín"
+
+#: 14. 6
+msgid "Roland"
+msgstr "Roland"
+
+#: 15. 6
+msgid "Vít"
+msgstr "Vít"
+
+#: 16. 6
+msgid "Zbyněk"
+msgstr "Zbyněk"
+
+#: 17. 6
+msgid "Adolf"
+msgstr "Adolf"
+
+#: 18. 6
+msgid "Milan"
+msgstr "Milan"
+
+#: 19. 6
+msgid "Leoš"
+msgstr "Leoš"
+
+#: 20. 6
+msgid "Květa"
+msgstr "Květa"
+
+#: 21. 6
+msgid "Alois"
+msgstr "Alois"
+
+#: 22. 6
+msgid "Pavla"
+msgstr "Pavla"
+
+#: 23. 6
+msgid "Zdeňka"
+msgstr "Zdeňka"
+
+#: 24. 6
+msgid "Jan"
+msgstr "Jan"
+
+#: 25. 6
+msgid "Ivan"
+msgstr "Ivan"
+
+#: 26. 6
+msgid "Adriana"
+msgstr "Adriana"
+
+#: 27. 6
+msgid "Ladislav"
+msgstr "Ladislav"
+
+#: 28. 6
+msgid "Lubomír"
+msgstr "Lubomír"
+
+#: 29. 6
+msgid "Petr a Pavel"
+msgstr "Petr a Pavel"
+
+#: 30. 6
+msgid "Šárka"
+msgstr "Šárka"
+
+#: 1. 7
+msgid "Jaroslava"
+msgstr "Jaroslava"
+
+#: 2. 7
+msgid "Patricie"
+msgstr "Patricie"
+
+#: 3. 7
+msgid "Radomír"
+msgstr "Radomír"
+
+#: 4. 7
+msgid "Prokop"
+msgstr "Prokop"
+
+#: 5. 7
+msgid "Státní svátek , Cyril a Metoděj"
+msgstr "Státní svátek , Cyril a Metoděj"
+
+#: 6. 7
+msgid "Státní svátek , Mistr Jan Hus"
+msgstr "Státní svátek , Mistr Jan Hus"
+
+#: 7. 7
+msgid "Bohuslava"
+msgstr "Bohuslava"
+
+#: 8. 7
+msgid "Nora"
+msgstr "Nora"
+
+#: 9. 7
+msgid "Drahoslava"
+msgstr "Drahoslava"
+
+#: 10. 7
+msgid "Libuše a Amálie"
+msgstr "Libuše a Amálie"
+
+#: 11. 7
+msgid "Olga"
+msgstr "Olga"
+
+#: 12. 7
+msgid "Bořek"
+msgstr "Bořek"
+
+#: 13. 7
+msgid "Markéta"
+msgstr "Markéta"
+
+#: 14. 7
+msgid "Karolína"
+msgstr "Karolína"
+
+#: 15. 7
+msgid "Jindřich"
+msgstr "Jindřich"
+
+#: 16. 7
+msgid "Luboš"
+msgstr "Luboš"
+
+#: 17. 7
+msgid "Martina"
+msgstr "Martina"
+
+#: 18. 7
+msgid "Drahomíra"
+msgstr "Drahomíra"
+
+#: 19. 7
+msgid "Čeněk"
+msgstr "Čeněk"
+
+#: 20. 7
+msgid "Ilja"
+msgstr "Ilja"
+
+#: 21. 7
+msgid "Vítězslav"
+msgstr "Vítězslav"
+
+#: 22. 7
+msgid "Magdaléna"
+msgstr "Magdaléna"
+
+#: 23. 7
+msgid "Libor"
+msgstr "Libor"
+
+#: 24. 7
+msgid "Kristýna"
+msgstr "Kristýna"
+
+#: 25. 7
+msgid "Jakub"
+msgstr "Jakub"
+
+#: 26. 7
+msgid "Anna"
+msgstr "Anna"
+
+#: 27. 7
+msgid "Věroslav"
+msgstr "Věroslav"
+
+#: 28. 7
+msgid "Viktor"
+msgstr "Viktor"
+
+#: 29. 7
+msgid "Marta"
+msgstr "Marta"
+
+#: 30. 7
+msgid "Bořivoj"
+msgstr "Bořivoj"
+
+#: 31. 7
+msgid "Ignác"
+msgstr "Ignác"
+
+#: 1. 8
+msgid "Oskar"
+msgstr "Oskar"
+
+#: 2. 8
+msgid "Gustav"
+msgstr "Gustav"
+
+#: 3. 8
+msgid "Miluše"
+msgstr "Miluše"
+
+#: 4. 8
+msgid "Dominik"
+msgstr "Dominik"
+
+#: 5. 8
+msgid "Kristián"
+msgstr "Kristián"
+
+#: 6. 8
+msgid "Oldřiška"
+msgstr "Oldřiška"
+
+#: 7. 8
+msgid "Lada"
+msgstr "Lada"
+
+#: 8. 8
+msgid "Soběslav"
+msgstr "Soběslav"
+
+#: 9. 8
+msgid "Roman"
+msgstr "Roman"
+
+#: 10. 8
+msgid "Vavřinec"
+msgstr "Vavřinec"
+
+#: 11. 8
+msgid "Zuzana"
+msgstr "Zuzana"
+
+#: 12. 8
+msgid "Klára"
+msgstr "Klára"
+
+#: 13. 8
+msgid "Alena"
+msgstr "Alena"
+
+#: 14. 8
+msgid "Alan"
+msgstr "Alan"
+
+#: 15. 8
+msgid "Hana"
+msgstr "Hana"
+
+#: 16. 8
+msgid "Jáchym"
+msgstr "Jáchym"
+
+#: 17. 8
+msgid "Petra"
+msgstr "Petra"
+
+#: 18. 8
+msgid "Helena"
+msgstr "Helena"
+
+#: 19. 8
+msgid "Ludvík"
+msgstr "Ludvík"
+
+#: 20. 8
+msgid "Bernard"
+msgstr "Bernard"
+
+#: 21. 8
+msgid "Johana"
+msgstr "Johana"
+
+#: 22. 8
+msgid "Bohuslav"
+msgstr "Bohuslav"
+
+#: 23. 8
+msgid "Sandra"
+msgstr "Sandra"
+
+#: 24. 8
+msgid "Bartoloměj"
+msgstr "Bartoloměj"
+
+#: 25. 8
+msgid "Radim"
+msgstr "Radim"
+
+#: 26. 8
+msgid "Luděk"
+msgstr "Luděk"
+
+#: 27. 8
+msgid "Otakar"
+msgstr "Otakar"
+
+#: 28. 8
+msgid "Augustýn"
+msgstr "Augustýn"
+
+#: 29. 8
+msgid "Evelína"
+msgstr "Evelína"
+
+#: 30. 8
+msgid "Vladěna"
+msgstr "Vladěna"
+
+#: 31. 8
+msgid "Pavlína"
+msgstr "Pavlína"
+
+#: 1. 9
+msgid "Linda a Samuel"
+msgstr "Linda a Samuel"
+
+#: 2. 9
+msgid "Adéla"
+msgstr "Adéla"
+
+#: 3. 9
+msgid "Bronislav"
+msgstr "Bronislav"
+
+#: 4. 9
+msgid "Jindřiška"
+msgstr "Jindřiška"
+
+#: 5. 9
+msgid "Boris"
+msgstr "Boris"
+
+#: 6. 9
+msgid "Boleslav"
+msgstr "Boleslav"
+
+#: 7. 9
+msgid "Regína"
+msgstr "Regína"
+
+#: 8. 9
+msgid "Mariana"
+msgstr "Mariana"
+
+#: 9. 9
+msgid "Daniela"
+msgstr "Daniela"
+
+#: 10. 9
+msgid "Irma"
+msgstr "Irma"
+
+#: 11. 9
+msgid "Denisa"
+msgstr "Denisa"
+
+#: 12. 9
+msgid "Marie"
+msgstr "Marie"
+
+#: 13. 9
+msgid "Lubor"
+msgstr "Lubor"
+
+#: 14. 9
+msgid "Radka"
+msgstr "Radka"
+
+#: 15. 9
+msgid "Jolana"
+msgstr "Jolana"
+
+#: 16. 9
+msgid "Ludmila"
+msgstr "Ludmila"
+
+#: 17. 9
+msgid "Naděžda"
+msgstr "Naděžda"
+
+#: 18. 9
+msgid "Kryštof"
+msgstr "Kryštof"
+
+#: 19. 9
+msgid "Zita"
+msgstr "Zita"
+
+#: 20. 9
+msgid "Oleg"
+msgstr "Oleg"
+
+#: 21. 9
+msgid "Matouš"
+msgstr "Matouš"
+
+#: 22. 9
+msgid "Darina"
+msgstr "Darina"
+
+#: 23. 9
+msgid "Berta"
+msgstr "Berta"
+
+#: 24. 9
+msgid "Jaromír"
+msgstr "Jaromír"
+
+#: 25. 9
+msgid "Zlata"
+msgstr "Zlata"
+
+#: 26. 9
+msgid "Andrea"
+msgstr "Andrea"
+
+#: 27. 9
+msgid "Jonáš"
+msgstr "Jonáš"
+
+#: 28. 9
+msgid "Václav"
+msgstr "Václav"
+
+#: 29. 9
+msgid "Michal"
+msgstr "Michal"
+
+#: 30. 9
+msgid "Jeroným"
+msgstr "Jeroným"
+
+#: 1. 10
+msgid "Igor"
+msgstr "Igor"
+
+#: 2. 10
+msgid "Olívie a Oliver"
+msgstr "Olívie a Oliver"
+
+#: 3. 10
+msgid "Bohumil"
+msgstr "Bohumil"
+
+#: 4. 10
+msgid "František"
+msgstr "František"
+
+#: 5. 10
+msgid "Eliška"
+msgstr "Eliška"
+
+#: 6. 10
+msgid "Hanuš"
+msgstr "Hanuš"
+
+#: 7. 10
+msgid "Justýna"
+msgstr "Justýna"
+
+#: 8. 10
+msgid "Věra"
+msgstr "Věra"
+
+#: 9. 10
+msgid "Štefan a Sára"
+msgstr "Štefan a Sára"
+
+#: 10. 10
+msgid "Marina"
+msgstr "Marina"
+
+#: 11. 10
+msgid "Andrej"
+msgstr "Andrej"
+
+#: 12. 10
+msgid "Marcel"
+msgstr "Marcel"
+
+#: 13. 10
+msgid "Renáta"
+msgstr "Renáta"
+
+#: 14. 10
+msgid "Agáta"
+msgstr "Agáta"
+
+#: 15. 10
+msgid "Tereza"
+msgstr "Tereza"
+
+#: 16. 10
+msgid "Havel"
+msgstr "Havel"
+
+#: 17. 10
+msgid "Hedvika"
+msgstr "Hedvika"
+
+#: 18. 10
+msgid "Lukáš"
+msgstr "Lukáš"
+
+#: 19. 10
+msgid "Michaela"
+msgstr "Michaela"
+
+#: 20. 10
+msgid "Vendelín"
+msgstr "Vendelín"
+
+#: 21. 10
+msgid "Brigita"
+msgstr "Brigita"
+
+#: 22. 10
+msgid "Sabina"
+msgstr "Sabina"
+
+#: 23. 10
+msgid "Teodor"
+msgstr "Teodor"
+
+#: 24. 10
+msgid "Nina"
+msgstr "Nina"
+
+#: 25. 10
+msgid "Beáta"
+msgstr "Beáta"
+
+#: 26. 10
+msgid "Erik"
+msgstr "Erik"
+
+#: 27. 10
+msgid "Šarlota a Zoe"
+msgstr "Šarlota a Zoe"
+
+#: 28. 10
+msgid "Statní svátek - Vznik Československa"
+msgstr "Statní svátek - Vznik Československa"
+
+#: 29. 10
+msgid "Silvie"
+msgstr "Silvie"
+
+#: 30. 10
+msgid "Tadeáš"
+msgstr "Tadeáš"
+
+#: 31. 10
+msgid "Štěpánka"
+msgstr "Štěpánka"
+
+#: 1. 11
+msgid "Felix"
+msgstr "Felix"
+
+#: 2. 11
+msgid "Památka zesnulých"
+msgstr "Památka zesnulých"
+
+#: 3. 11
+msgid "Hubert"
+msgstr "Hubert"
+
+#: 4. 11
+msgid "Karel"
+msgstr "Karel"
+
+#: 5. 11
+msgid "Miriam"
+msgstr "Miriam"
+
+#: 6. 11
+msgid "Liběna"
+msgstr "Liběna"
+
+#: 7. 11
+msgid "Saskie"
+msgstr "Saskie"
+
+#: 8. 11
+msgid "Bohumír"
+msgstr "Bohumír"
+
+#: 9. 11
+msgid "Bohdan"
+msgstr "Bohdan"
+
+#: 10. 11
+msgid "Evžen"
+msgstr "Evžen"
+
+#: 11. 11
+msgid "Martin"
+msgstr "Martin"
+
+#: 12. 11
+msgid "Benedikt"
+msgstr "Benedikt"
+
+#: 13. 11
+msgid "Tibor"
+msgstr "Tibor"
+
+#: 14. 11
+msgid "Sáva"
+msgstr "Sáva"
+
+#: 15. 11
+msgid "Leopold"
+msgstr "Leopold"
+
+#: 16. 11
+msgid "Otmar"
+msgstr "Otmar"
+
+#: 17. 11
+msgid "Mahulena"
+msgstr "Mahulena"
+
+#: 18. 11
+msgid "Romana"
+msgstr "Romana"
+
+#: 19. 11
+msgid "Alžběta"
+msgstr "Alžběta"
+
+#: 20. 11
+msgid "Nikola"
+msgstr "Nikola"
+
+#: 21. 11
+msgid "Albert"
+msgstr "Albert"
+
+#: 22. 11
+msgid "Cecílie"
+msgstr "Cecílie"
+
+#: 23. 11
+msgid "Klement"
+msgstr "Klement"
+
+#: 24. 11
+msgid "Emílie"
+msgstr "Emílie"
+
+#: 25. 11
+msgid "Kateřina"
+msgstr "Kateřina"
+
+#: 26. 11
+msgid "Artur"
+msgstr "Artur"
+
+#: 27. 11
+msgid "Xenie"
+msgstr "Xenie"
+
+#: 28. 11
+msgid "René"
+msgstr "René"
+
+#: 29. 11
+msgid "Zina"
+msgstr "Zina"
+
+#: 30. 11
+msgid "Ondřej"
+msgstr "Ondřej"
+
+#: 1. 12
+msgid "Iva"
+msgstr "Iva"
+
+#: 2. 12
+msgid "Blanka"
+msgstr "Blanka"
+
+#: 3. 12
+msgid "Svatoslav"
+msgstr "Svatoslav"
+
+#: 4. 12
+msgid "Barbora"
+msgstr "Barbora"
+
+#: 5. 12
+msgid "Jitka"
+msgstr "Jitka"
+
+#: 6. 12
+msgid "Mikuláš"
+msgstr "Mikuláš"
+
+#: 7. 12
+msgid "Ambrož"
+msgstr "Ambrož"
+
+#: 8. 12
+msgid "Květoslava"
+msgstr "Květoslava"
+
+#: 9. 12
+msgid "Vratislav"
+msgstr "Vratislav"
+
+#: 10. 12
+msgid "Julie"
+msgstr "Julie"
+
+#: 11. 12
+msgid "Dana"
+msgstr "Dana"
+
+#: 12. 12
+msgid "Simona"
+msgstr "Simona"
+
+#: 13. 12
+msgid "Lucie"
+msgstr "Lucie"
+
+#: 14. 12
+msgid "Lýdie"
+msgstr "Lýdie"
+
+#: 15. 12
+msgid "Radana"
+msgstr "Radana"
+
+#: 16. 12
+msgid "Albína"
+msgstr "Albína"
+
+#: 17. 12
+msgid "Daniel"
+msgstr "Daniel"
+
+#: 18. 12
+msgid "Miloslav"
+msgstr "Miloslav"
+
+#: 19. 12
+msgid "Ester"
+msgstr "Ester"
+
+#: 20. 12
+msgid "Dagmar"
+msgstr "Dagmar"
+
+#: 21. 12
+msgid "Natálie"
+msgstr "Natálie"
+
+#: 22. 12
+msgid "Šimon"
+msgstr "Šimon"
+
+#: 23. 12
+msgid "Vlasta"
+msgstr "Vlasta"
+
+#: 24. 12
+msgid "Adam a Eva , Štědrý den"
+msgstr "Adam a Eva , Štědrý den"
+
+#: 25. 12
+msgid "1. svátek vánoční"
+msgstr "1. svátek vánoční"
+
+#: 26. 12
+msgid "Štěpán , 2. svátek vánoční"
+msgstr "Štěpán , 2. svátek vánoční"
+
+#: 27. 12
+msgid "Žaneta"
+msgstr "Žaneta"
+
+#: 28. 12
+msgid "Bohumila"
+msgstr "Bohumila"
+
+#: 29. 12
+msgid "Judita"
+msgstr "Judita"
+
+#: 30. 12
+msgid "David"
+msgstr "David"
+
+#: 31. 12
+msgid "Silvestr"
+msgstr "Silvestr"

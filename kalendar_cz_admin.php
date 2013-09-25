@@ -1,10 +1,15 @@
+<?php
+load_plugin_textdomain('kalendar_cz', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+
+?>
+
 <div class="wrap">
-<h2>Kalendář CZ</h2>
+<h2><?php printf( __('Kalendář CZ','kalendar_cz')); ?></h2>
 <?php
 //ověření, zda jsou opravdu všechny data v tabulce s kalendářem a zda není načtena starší verze
 
 $cislo = mysql_num_rows(mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar"));
-if($cislo<11){echo "Wordpress při aktivaci pluginu provedl neplatnou operaci, pro správnou funkci pluginu jej deaktivujte a znovu aktivujte, pokud se chyba neodstraní, dejte nám o ní vědet na <a href=\"http://phgame.cz/kalendar\">PHGame.cz</a>";}
+if($cislo<11){printf( __('Wordpress při aktivaci pluginu provedl neplatnou operaci, pro správnou funkci pluginu jej deaktivujte a znovu aktivujte, pokud se chyba neodstraní, dejte nám o ní vědet na <a href=\"http://phgame.cz/kalendar\">PHGame.cz</a>','kalendar_cz'));}
 else{
 ?>
 
@@ -41,7 +46,7 @@ global $wpdb;
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["centrovani"] . "' WHERE typ='centrovani'");
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["odsazeni"] . "' WHERE typ='odsazeni_vrsek'");
 mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["barva_textu"] . "' WHERE typ='barva_text'");
-echo "Uloženo<br>";
+printf( __('Uloženo','kalendar_cz')); echo "<br>";
 }
 
 
@@ -55,7 +60,7 @@ $soubor = fopen($real_file, "w");
 fwrite($soubor, $text);
 fclose($soubor);
 
-echo "Uloženo<br>";
+printf( __('Uloženo','kalendar_cz')); echo "<br>";
 }
 
 //po odeslani formulare
@@ -63,41 +68,42 @@ echo "Uloženo<br>";
 $cas_ted = date_i18n(get_option('time_format'));
 $prevod_hodiny = split('\.', $cas_ted);
 $prevod_datum = split('\.', date_i18n( get_option('date_format')));
-$caaaa = MkTime ($prevod_hodiny[0], $prevod_hodiny[1], 0, $prevod_datum[1], $prevod_datum[0], $prevod_datum[2]) . "<br>";
-echo "Aktuální datum a čas: " . Date ("d. n. Y, H:i", MkTime ($prevod_hodiny[0], $prevod_hodiny[1], 0, $prevod_datum[1], $prevod_datum[0], $prevod_datum[2])) . "<br>";
-echo "<p>* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress správně (nastavení/obecné), nesprávné zobrazení času může být nesprávným nastavením časové zóny</p>";
+$caaaa = MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
+printf( __('Aktuální datum a čas:','kalendar_cz')); echo " " . Date ("d. n. Y, H:i", MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2])) . "<br>";
+
+echo "<p>";printf( __('* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress správně (nastavení/obecné), nesprávné zobrazení času může být nesprávným nastavením časové zóny','kalendar_cz'));echo "</p>";
 //hlavicka s casem
 
 
 
 
-echo "<fieldset style=\"border:1px solid black;\"><legend style=\"margin-left:20px;\">Co se bude na webu vypisovat</legend><blockquote>";
+echo "<fieldset style=\"border:1px solid black;\"><legend style=\"margin-left:20px;\">"; printf( __('Co se bude na webu vypisovat','kalendar_cz')); echo "</legend><blockquote>";
 echo '<form method="post">
-<table><tr><td>Pořadí</td><td>Typ</td><td>Zobrazení</td></tr>';
+<table><tr><td>';printf( __('Pořadí','kalendar_cz'));echo '</td><td>';printf( __('Typ','kalendar_cz'));echo '</td><td>';printf( __('Zobrazení','kalendar_cz'));echo '</td></tr>';
 $data = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='cas' OR typ='den' OR typ='svatek' OR typ='svatek_zitra' OR typ='vanoce' OR typ='novy_rok' OR typ='sudy_lichy_tyden' OR typ='cislo_tydne' ORDER BY cislo ASC");
 while ($a=mysql_fetch_array($data)):
 
 echo '<tr><td><input type="text" value="' . $a["cislo"] . '" name="poradi'. $a["id"] .'"></td><td>';
-if($a["typ"]=="cas"){echo "Zobrazí aktuální čas";}
-elseif($a["typ"]=="den"){echo "Zobrazí aktuální datum";}
-elseif($a["typ"]=="svatek"){echo "Zobrazí, kdo má dnes svátek";}
-elseif($a["typ"]=="svatek_zitra"){echo "Zobrazí, kdo má zítra svátek";}
-elseif($a["typ"]=="vanoce"){echo "Zobrazí, kolik dní zbývá do Vánoc";}
-elseif($a["typ"]=="novy_rok"){echo "Zobrazí, kolik dní zbývá do konce roku";}
-elseif($a["typ"]=="sudy_lichy_tyden"){echo "Zobrazí sudý/lichý týden";}
-elseif($a["typ"]=="cislo_tydne"){echo "Zobrazí číslo týdne";}
+if($a["typ"]=="cas"){printf( __('Zobrazí aktuální čas','kalendar_cz'));}
+elseif($a["typ"]=="den"){printf( __('Zobrazí aktuální datum','kalendar_cz'));}
+elseif($a["typ"]=="svatek"){printf( __('Zobrazí, kdo má dnes svátek','kalendar_cz'));}
+elseif($a["typ"]=="svatek_zitra"){printf( __('Zobrazí, kdo má zítra svátek','kalendar_cz'));}
+elseif($a["typ"]=="vanoce"){printf( __('Zobrazí, kolik dní zbývá do Vánoc','kalendar_cz'));}
+elseif($a["typ"]=="novy_rok"){printf( __('Zobrazí, kolik dní zbývá do konce roku','kalendar_cz'));}
+elseif($a["typ"]=="sudy_lichy_tyden"){printf( __('Zobrazí sudý/lichý týden','kalendar_cz'));}
+elseif($a["typ"]=="cislo_tydne"){printf( __('Zobrazí číslo týdne','kalendar_cz'));}
 
 echo '</td><td><center>';
 if($a["zobrazit"]==1){echo '<input type="checkbox" checked name="zobrazeno'. $a["id"] .'"></center>';}else{echo '<input type="checkbox" name="zobrazeno'. $a["id"] .'"></center>';}
 echo '</td></tr>';
 
 endwhile;
-echo '</table><input type="submit" name="kalendar-cz-submit" value=" Uložit " /></form>';
+echo '</table><input type="submit" name="kalendar-cz-submit" value="'; printf( __(' Uložit ','kalendar_cz')); echo '" /></form>';
 ?>
 
-<p>* Pořadí je určené číslem, každé číslo může být pouze jednou, jinak plugin nebude správně fungovat.</p>
-<p>* Zaškrtnuté pole znamená, že je daný řádek vidět, nezaškrtnutý, že není.</p>
-<p>* Pokud nebudete některou z částí (datum, čas, svátky...) používat, přesuňte jí na konec, u některých témat tímto předejdete chybám</p>
+<p><?php printf( __('* Pořadí je určené číslem, každé číslo může být pouze jednou, jinak plugin nebude správně fungovat.','kalendar_cz'));?></p>
+<p><?php printf( __('* Zaškrtnuté pole znamená, že je daný řádek vidět, nezaškrtnutý, že není.','kalendar_cz'));?></p>
+<p><?php printf( __('* Pokud nebudete některou z částí (datum, čas, svátky...) používat, přesuňte jí na konec, u některých témat tímto předejdete chybám','kalendar_cz'));?></p>
 </blockquote>
 </fieldset>
 
@@ -108,7 +114,7 @@ echo '</table><input type="submit" name="kalendar-cz-submit" value=" Uložit " /
 
 <br>
 <fieldset style="border:1px solid black;">
-<legend  style="margin-left:20px;">Jednoduché nastavení vzhledu</legend>
+<legend  style="margin-left:20px;"><?php printf( __('Jednoduché nastavení vzhledu','kalendar_cz'));?></legend>
 <blockquote>
 <?php
 /*
@@ -123,43 +129,43 @@ $data1 = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WH
 
 echo '<form method="post"><table>';
 while ($a1=mysql_fetch_array($data1)):
-	if($a1["typ"]=="odsazeni_vrsek"){echo '<tr><td>Odsazení od shora:</td><td><input type="text" value="'. $a1["hodnota"] .'" name="odsazeni">px</td></tr>';}
+	if($a1["typ"]=="odsazeni_vrsek"){echo '<tr><td>';printf( __('Odsazení od shora:','kalendar_cz'));echo '</td><td><input type="text" value="'. $a1["hodnota"] .'" name="odsazeni">px</td></tr>';}
 
 if($a1["typ"]=="centrovani"){
 ?>
-<tr><td>Umístění textu:</td><td>
+<tr><td><?php printf( __('Umístění textu:','kalendar_cz'));?></td><td>
 <select name="centrovani">
-<option value="left" <?php if($a1["hodnota"]=="left"){echo 'selected="selected"';} ?>>levá strana</option>
-<option value="center" <?php if($a1["hodnota"]=="center"){echo 'selected="selected"';} ?>>střed</option>
-<option value="right" <?php if($a1["hodnota"]=="right"){echo 'selected="selected"';} ?>>pravá strana</option>
+<option value="left" <?php if($a1["hodnota"]=="left"){echo 'selected="selected"';} ?>><?php printf( __('levá strana','kalendar_cz'));?></option>
+<option value="center" <?php if($a1["hodnota"]=="center"){echo 'selected="selected"';} ?>><?php printf( __('střed','kalendar_cz'));?></option>
+<option value="right" <?php if($a1["hodnota"]=="right"){echo 'selected="selected"';} ?>><?php printf( __('pravá strana','kalendar_cz'));?></option>
 </select></td></tr>
 <?php
 }
 if($a1["typ"]=="barva_text"){
 ?>
-<tr><td>Barva textu:</td><td>
+<tr><td><?php printf( __('Barva textu:','kalendar_cz'));?></td><td>
 <select name="barva_textu">
 <option value="" <?php if($a1["hodnota"]==""){echo 'selected="selected"';} ?>>barva thema</option>
-<option value="#000000" <?php if($a1["hodnota"]=="#000000"){echo 'selected="selected"';} ?> style="color: #000000">černá</option>
-<option value="#0000FF" <?php if($a1["hodnota"]=="#0000FF"){echo 'selected="selected"';} ?> style="color: #0000FF">modrá</option>
-<option value="#FF0000" <?php if($a1["hodnota"]=="#FF0000"){echo 'selected="selected"';} ?> style="color: #FF0000">červená</option>
-<option value="#00FF00" <?php if($a1["hodnota"]=="#00FF00"){echo 'selected="selected"';} ?> style="color: #00FF00">zelená</option>
-<option value="#FFFFFF" <?php if($a1["hodnota"]=="#FFFFFF"){echo 'selected="selected"';} ?> style="color: #000000">bílá</option>
-<option value="#FF1493" <?php if($a1["hodnota"]=="#FF1493"){echo 'selected="selected"';} ?> style="color: #FF1493">růžová</option>
-<option value="#BA55D3" <?php if($a1["hodnota"]=="#BA55D3"){echo 'selected="selected"';} ?> style="color: #BA55D3">fialová</option>
-<option value="#FFFF00" <?php if($a1["hodnota"]=="#FFFF00"){echo 'selected="selected"';} ?> style="color: #FFFF00">žlutá</option>
-<option value="#D3D3D3" <?php if($a1["hodnota"]=="#D3D3D3"){echo 'selected="selected"';} ?> style="color: #D3D3D3">světle šedá</option>
-<option value="#696969" <?php if($a1["hodnota"]=="#696969"){echo 'selected="selected"';} ?> style="color: #696969">tmavě šedá</option>
-<option value="#FFA500" <?php if($a1["hodnota"]=="#FFA500"){echo 'selected="selected"';} ?> style="color: #FFA500">oranžová</option>
-<option value="#00BFFF" <?php if($a1["hodnota"]=="#00BFFF"){echo 'selected="selected"';} ?> style="color: #00BFFF">světe modrá</option>
+<option value="#000000" <?php if($a1["hodnota"]=="#000000"){echo 'selected="selected"';} ?> style="color: #000000"><?php printf( __('černá','kalendar_cz'));?></option>
+<option value="#0000FF" <?php if($a1["hodnota"]=="#0000FF"){echo 'selected="selected"';} ?> style="color: #0000FF"><?php printf( __('modrá','kalendar_cz'));?></option>
+<option value="#FF0000" <?php if($a1["hodnota"]=="#FF0000"){echo 'selected="selected"';} ?> style="color: #FF0000"><?php printf( __('červená','kalendar_cz'));?></option>
+<option value="#00FF00" <?php if($a1["hodnota"]=="#00FF00"){echo 'selected="selected"';} ?> style="color: #00FF00"><?php printf( __('zelená','kalendar_cz'));?></option>
+<option value="#FFFFFF" <?php if($a1["hodnota"]=="#FFFFFF"){echo 'selected="selected"';} ?> style="color: #000000"><?php printf( __('bílá','kalendar_cz'));?></option>
+<option value="#FF1493" <?php if($a1["hodnota"]=="#FF1493"){echo 'selected="selected"';} ?> style="color: #FF1493"><?php printf( __('růžová','kalendar_cz'));?></option>
+<option value="#BA55D3" <?php if($a1["hodnota"]=="#BA55D3"){echo 'selected="selected"';} ?> style="color: #BA55D3"><?php printf( __('fialová','kalendar_cz'));?></option>
+<option value="#FFFF00" <?php if($a1["hodnota"]=="#FFFF00"){echo 'selected="selected"';} ?> style="color: #FFFF00"><?php printf( __('žlutá','kalendar_cz'));?></option>
+<option value="#D3D3D3" <?php if($a1["hodnota"]=="#D3D3D3"){echo 'selected="selected"';} ?> style="color: #D3D3D3"><?php printf( __('světle šedá','kalendar_cz'));?></option>
+<option value="#696969" <?php if($a1["hodnota"]=="#696969"){echo 'selected="selected"';} ?> style="color: #696969"><?php printf( __('tmavě šedá','kalendar_cz'));?></option>
+<option value="#FFA500" <?php if($a1["hodnota"]=="#FFA500"){echo 'selected="selected"';} ?> style="color: #FFA500"><?php printf( __('oranžová','kalendar_cz'));?></option>
+<option value="#00BFFF" <?php if($a1["hodnota"]=="#00BFFF"){echo 'selected="selected"';} ?> style="color: #00BFFF"><?php printf( __('světe modrá','kalendar_cz'));?></option>
 </select>
 </td></tr>
 <?php
 }
 endwhile;
 ?>
-</table><input type="submit" name="kalendar-cz-submit1" value=" Uložit " /></form>
-<p>* Hodnotu pro odsazení zadávejte pouze jako číslo</p>
+</table><input type="submit" name="kalendar-cz-submit1" value="<?php printf( __(' Uložit ','kalendar_cz'));?>" /></form>
+<p><?php printf( __('* Hodnotu pro odsazení zadávejte pouze jako číslo','kalendar_cz'));?></p>
 </blockquote>
 </fieldset>
 
@@ -167,7 +173,7 @@ endwhile;
 
 <br>
 <fieldset style="border:1px solid black;">
-<legend style="margin-left:20px;">Vlastní CSS styly</legend>
+<legend style="margin-left:20px;"><?php printf( __('Vlastní CSS styly','kalendar_cz'));?></legend>
 <blockquote>
 <table><tr><td>
 #kalendar_cz_cas<br>#kalendar_cz_datum<br>#kalendar_cz_svatek_dnes<br>#kalendar_cz_svatek_zitra<br>#kalendar_cz_vanoce<br>#kalendar_cz_novy_rok<br>#kalendar_cz_ls_tyden<br>#kalendar_cz_cislo_tydne
@@ -187,21 +193,20 @@ while(!feof($soubor)){
 	}
 fclose($soubor);
 echo "<form method=\"post\"><textarea name=\"cssko\" cols=\"100\" rows=\"8\">" . $radek . "</textarea>";
-}else{echo "Do souboru stylů není možné zapisovat, vyhledejte prosím soubor kalendar_cz_style.css ve složce pluginu (wp-content/plugins/kalendar-cz/) a změňte práva souboru na 775, aby bylo možné do něj zapisovat";}
+}else{printf( __('Do souboru stylů není možné zapisovat, vyhledejte prosím soubor kalendar_cz_style.css ve složce pluginu (wp-content/plugins/kalendar-cz/) a změňte práva souboru na 775, aby bylo možné do něj zapisovat','kalendar_cz'));}
 ?>
 </td></tr></table>
-<input type="submit" name="kalendar-cz-submit2" value=" Uložit " />
+<input type="submit" name="kalendar-cz-submit2" value="<?php printf( __(' Uložit ','kalendar_cz'));?>" />
 </form>
-<p>* Tato funkce je pro skušené uživatele</p>
-<p>* Styly uvedené nalevo jsou ty, které jasně definují jednotlivé řádky pluginu</p>
+<p><?php printf( __('* Tato funkce je pro zkušené uživatele','kalendar_cz'));?></p>
+<p><?php printf( __('* Styly uvedené nalevo jsou ty, které jasně definují jednotlivé řádky pluginu','kalendar_cz'));?></p>
 </blockquote>
 </fieldset><br>
-<p>* Plugin je stále ve vývoji, oficiální stránka: <a href="http://phgame.cz/kalendar">http://phgame.cz/kalendar</a></p>
-<p>* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v našich silách, rozšíření o které žádáte v nové verzi naleznete</p>
+<p><?php printf( __('* Plugin je stále ve vývoji, oficiální stránka:','kalendar_cz'));?> <a href="http://phgame.cz/kalendar">http://phgame.cz/kalendar</a></p>
+<p><?php printf( __('* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v našich silách, rozšíření o které žádáte v nové verzi naleznete','kalendar_cz'));?></p>
+
 
 <?php
-
-
 }
 ?>
 </div>
