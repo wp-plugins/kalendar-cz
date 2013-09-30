@@ -1,10 +1,10 @@
-﻿=== Kalendář CZ ===
-Contributors: Jakub Kozina (Webster.K) a Patrik Bodnár
+﻿=== Kalendář / Calendar ===
+Contributors: Webster.K
 Donate link:
-Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, svátky, hodiny, dny, měsíce, time, date
+Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, slovenský kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.6
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 
 == Description ==
 = CZ =
@@ -32,14 +32,23 @@ Stable tag: 1.4.0
 
 == Frequently Asked Questions ==
 V případě nalezení chyby nás prosím upozorněte na http://phgame.cz (oficiální stránka pluginu).
-Webster.K - Autor celého pluginu
-Patrik Bodnár - Autor SK verze ( slovenského překladu )
+
+= Webster.K =
+* Autor celého pluginu
+
+= Patrik Bodnár =
+* Autor SK verze ( slovenského překladu )
 
 
 == Changelog ==
+= 1.4.1 =
+* Opravena chyba v administraci, která umožňovala změnu nastavení i jiným uživatelům než pouze administrátorům
+* Plugin byl přejmenován z Kalendář CZ na Kalendář / Calendar kvůli podpoře více jazyků, protože se již nejedná pouze o český kalendář
+
 = 1.4.0 =
 * Plugin byl přepracován tak, aby bylo možné změnit jazyk, nyní lze jazyk změnit pomocí souboru .mo a .po
 * Byl přidán jazyk SK (autor Patrik Bodnár)
+* Slovenský jazyk obsahuje překlad administrace pluginu, části, která se zobrazuje na webu a svátků (odpovídají tedy skutečnému kalendáři slovenských svátků)
 * Opravena chyba, po aktualizaci na novou verzi WordPressu (3.6) plugin vracel chybu u mktime(), nyní by vše mělo být v pořádku.
 * Byl ručně zkalibrován týden, který šel na některých webech jinak, je ale možné že na některých webech bude čas naopak o týden dopředu, v příští verzi se pravděpodobně objeví v administraci jednoduchý kalibrátor, aby se této chybě dalo zamezit
 
