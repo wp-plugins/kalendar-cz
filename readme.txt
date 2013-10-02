@@ -8,7 +8,10 @@ Stable tag: 1.4.1
 
 == Description ==
 = CZ =
-* Plugin Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku. To vše v postranním panelu (možno použít jako widget).
+* Plugin zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku. To vše v postranním panelu (možno použít jako widget).
+
+= SK =
+* Plugin zobrazuje hodiny, čas, kto má dnes a zajtra sviatok, párny, nepárny týždeň, číslo týždňa a počet dní do Vianoc či do konca roka. To všetko v postranným panelu (možnosť  použiť  ako widget).
 
 = EN =
 * Plugin show the date, time, days to the Christmas and the czech festivals on sidebar (you can use it as widget).
