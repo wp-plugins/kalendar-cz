@@ -4,11 +4,12 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, slovenský kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.6
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 
 == Description ==
 = CZ =
 * Plugin zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku. To vše v postranním panelu (možno použít jako widget).
+* Autor slovenského překladu Patrik Bodnár
 
 = SK =
 * Plugin zobrazuje hodiny, čas, kto má dnes a zajtra sviatok, párny, nepárny týždeň, číslo týždňa a počet dní do Vianoc či do konca roka. To všetko v postranným panelu (možnosť  použiť  ako widget).
@@ -34,7 +35,7 @@ Stable tag: 1.4.1
 2. Jak plugin vypadá od verze 1.2.0
 
 == Frequently Asked Questions ==
-V případě nalezení chyby nás prosím upozorněte na http://phgame.cz (oficiální stránka pluginu).
+V případě nalezení chyby nás prosím upozorněte na http://phgame.cz/kalendar (oficiální stránka pluginu).
 
 = Webster.K =
 * Autor celého pluginu
@@ -44,6 +45,9 @@ V případě nalezení chyby nás prosím upozorněte na http://phgame.cz (ofici
 
 
 == Changelog ==
+= 1.4.2 =
+* Opravena chyba, která způsobovala, že prvních 9 týdnů každého roku se nezobrazovalo číslo v pluginu
+
 = 1.4.1 =
 * Opravena chyba v administraci, která umožňovala změnu nastavení i jiným uživatelům než pouze administrátorům
 * Plugin byl přejmenován z Kalendář CZ na Kalendář / Calendar kvůli podpoře více jazyků, protože se již nejedná pouze o český kalendář
