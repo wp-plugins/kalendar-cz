@@ -3,7 +3,7 @@
 Plugin Name: Kalendář / Calendar
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku.
-Version: 1.5.0
+Version: 1.5.1
 Author: Webster.K
 Author URI: http://phgame.cz/kalendar
 */
@@ -461,7 +461,10 @@ $svatek_1_10,$svatek_2_10,$svatek_3_10,$svatek_4_10,$svatek_5_10,$svatek_6_10,$s
 $svatek_1_11,$svatek_2_11,$svatek_3_11,$svatek_4_11,$svatek_5_11,$svatek_6_11,$svatek_7_11,$svatek_8_11,$svatek_9_11,$svatek_10_11,$svatek_11_11,$svatek_12_11,$svatek_13_11,$svatek_14_11,$svatek_15_11,$svatek_16_11,$svatek_17_11,$svatek_18_11,$svatek_19_11,$svatek_20_11,$svatek_21_11,$svatek_22_11,$svatek_23_11,$svatek_24_11,$svatek_25_11,$svatek_26_11,$svatek_27_11,$svatek_28_11,$svatek_29_11,$svatek_30_11,
 $svatek_1_12,$svatek_2_12,$svatek_3_12,$svatek_4_12,$svatek_5_12,$svatek_6_12,$svatek_7_12,$svatek_8_12,$svatek_9_12,$svatek_10_12,$svatek_11_12,$svatek_12_12,$svatek_13_12,$svatek_14_12,$svatek_15_12,$svatek_16_12,$svatek_17_12,$svatek_18_12,$svatek_19_12,$svatek_20_12,$svatek_21_12,$svatek_22_12,$svatek_23_12,$svatek_24_12,$svatek_25_12,$svatek_26_12,$svatek_27_12,$svatek_28_12,$svatek_29_12,$svatek_30_12,$svatek_31_12,$svatek_1_1);
 
-$d=getdate(get_presny_cas_z_wp());
+$cas_ktery_se_pouziva_u_wp = get_presny_cas_z_wp();
+
+
+$d=getdate($cas_ktery_se_pouziva_u_wp);
 $datum=date("d. m. Y");
 $yday=$d["yday"];
 
@@ -509,7 +512,7 @@ while ($dat = mysql_fetch_array($data)):
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="den"){
-		$output .= "<div id=\"kalendar_cz_datum\"><font color=\"". $barva_textu ."\">" . get_my_today_date() . "</font></div>";
+		$output .= "<div id=\"kalendar_cz_datum\"><font color=\"". $barva_textu ."\">" . get_my_today_date($cas_ktery_se_pouziva_u_wp) . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
@@ -527,25 +530,25 @@ while ($dat = mysql_fetch_array($data)):
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="vanoce"){
-		$output .= "<div id=\"kalendar_cz_vanoce\"><font color=\"". $barva_textu ."\">" . get_vanoce() . "</font></div>";
+		$output .= "<div id=\"kalendar_cz_vanoce\"><font color=\"". $barva_textu ."\">" . get_vanoce($cas_ktery_se_pouziva_u_wp) . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="novy_rok"){
-		$output .= "<div id=\"kalendar_cz_novy_rok\"><font color=\"". $barva_textu ."\">" . get_novy_rok() . "</font></div>";
+		$output .= "<div id=\"kalendar_cz_novy_rok\"><font color=\"". $barva_textu ."\">" . get_novy_rok($cas_ktery_se_pouziva_u_wp) . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="sudy_lichy_tyden"){
-		$output .= "<div id=\"kalendar_cz_ls_tyden\"><font color=\"". $barva_textu ."\">" . get_sudy_lichy_tyden() . "</font></div>";
+		$output .= "<div id=\"kalendar_cz_ls_tyden\"><font color=\"". $barva_textu ."\">" . get_sudy_lichy_tyden($cas_ktery_se_pouziva_u_wp) . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
 	}
 	elseif($dat["typ"]=="cislo_tydne"){
-		$output .= "<div id=\"kalendar_cz_cislo_tydne\"><font color=\"". $barva_textu ."\">" . get_cislo_tydne() . "</font></div>";
+		$output .= "<div id=\"kalendar_cz_cislo_tydne\"><font color=\"". $barva_textu ."\">" . get_cislo_tydne($cas_ktery_se_pouziva_u_wp) . "</font></div>";
 		if($radku!=$dat["cislo"]){
 			$output .= "$after\n$before";
 		}else{$output .= "$after\n";}
@@ -561,12 +564,17 @@ function zpetny_odkaz() {
 }
 
 function get_presny_cas_z_wp(){
+
+/*
+//puvodni kod, novy je o dost lepsi :D	
 $prevod_hodiny = split('\.', date_i18n(get_option('time_format')));
 $prevod_datum = split('\.', date_i18n( get_option('date_format')));
-return MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
+return MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]);
+*/
+return current_time( 'timestamp', 0 );
 }
 
-function get_my_today_date() {
+function get_my_today_date($presne_datum) {
 	$mesic_leden = __('ledna','kalendar_cz');
 	$mesic_unor = __('února','kalendar_cz');
 	$mesic_brezen = __('března','kalendar_cz');
@@ -590,7 +598,7 @@ function get_my_today_date() {
 	
     $mesic = array('',$mesic_leden,$mesic_unor,$mesic_brezen,$mesic_duben,$mesic_kveten,$mesic_cerven,$mesic_cervenec,$mesic_srpen,$mesic_zari,$mesic_rijen,$mesic_listopad,$mesic_prosinec);
     $den = array($den_tydne_Ne,$den_tydne_Po,$den_tydne_Ut,$den_tydne_St,$den_tydne_Ct,$den_tydne_Pa,$den_tydne_So);
-    $d=getdate(get_presny_cas_z_wp());
+    $d=getdate($presne_datum);
     /* Not used
     $y=$d["year"];
     $timecz = Time();
@@ -633,8 +641,7 @@ casovac()
 
 }
 
-function get_vanoce(){
-$dnesek = time();
+function get_vanoce($dnesek){
 $den_od_zacatku_roku = Date(z, $dnesek);
 if(Date(Y, $dnesek)%4==0){$pocet_dni = 366;}else{$pocet_dni = 365;}
 $den_do_vanoc = $pocet_dni - 8 - $den_od_zacatku_roku;
@@ -656,8 +663,7 @@ else{
 	}
 }
 
-function get_novy_rok(){
-$dnesek = time();
+function get_novy_rok($dnesek){
 $den_od_zacatku_roku = Date(z, $dnesek);
 if(Date(Y, $dnesek)%4==0){$pocet_dni = 366;}else{$pocet_dni = 365;}
 $den_do_konce_roku = $pocet_dni - $den_od_zacatku_roku - 1;
@@ -675,11 +681,7 @@ else{
 	}
 }
 
-function get_sudy_lichy_tyden(){
-	$cas_ted = date_i18n(get_option('time_format'));
-	$prevod_hodiny = split('\.', $cas_ted);
-	$prevod_datum = split('\.', date_i18n( get_option('date_format')));
-	$caaaa = MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
+function get_sudy_lichy_tyden($caaaa){
 
 	global $wpdb;
 	$nastaveni = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='kalibrace_tydne'");
@@ -691,11 +693,7 @@ function get_sudy_lichy_tyden(){
 	if($dnesek%2==0){return __('Je sudý týden','kalendar_cz');}else{return __('Je lichý týden','kalendar_cz');}
 }
 
-function get_cislo_tydne(){
-	$cas_ted = date_i18n(get_option('time_format'));
-	$prevod_hodiny = split('\.', $cas_ted);
-	$prevod_datum = split('\.', date_i18n( get_option('date_format')));
-	$caaaa = MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
+function get_cislo_tydne($caaaa){
 
 	
 	global $wpdb;
@@ -753,6 +751,28 @@ function kalendar_cz_admin_actions()
 "kalendar_cz", "kalendar_cz_menu");
 }
  
+
+function kalendar_cz_dashboard_widgets_obsah() {
+	?>
+	<div class="kalendar_cz_dashboard" style="width:100%">
+	<?php printf( __('Aktuální datum a čas:','kalendar_cz')); echo " " . Date ("d. n. Y, H:i", get_presny_cas_z_wp());printf( __(', pokud je čas špatný, přejděte prosím do nastavení pluginu.','kalendar_cz'));?>
+	</div>
+	<?php
+}
+
+
+
+function kalendar_cz_dashboard_widgets() {
+
+	wp_add_dashboard_widget(
+                 'kalendar_cz_dashboard_widget',         // Widget slug.
+                 'Kalendář / Calendar',         // Title.
+                 'kalendar_cz_dashboard_widgets_obsah' // Display function.
+        );	
+}
+
+add_action( 'wp_dashboard_setup', 'kalendar_cz_dashboard_widgets' );
+
 add_action('admin_menu', 'kalendar_cz_admin_actions');
 
 add_action("plugins_loaded", "init_kalendar_cz_widget");

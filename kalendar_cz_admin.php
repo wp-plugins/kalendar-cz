@@ -78,11 +78,9 @@ printf( __('Uloženo','kalendar_cz')); echo "<br>";
 
 //po odeslani formulare
 //hlavicka s casem
-$cas_ted = date_i18n(get_option('time_format'));
-$prevod_hodiny = split('\.', $cas_ted);
-$prevod_datum = split('\.', date_i18n( get_option('date_format')));
-$caaaa = MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
-printf( __('Aktuální datum a čas:','kalendar_cz')); echo " " . Date ("d. n. Y, H:i", MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]));
+$caaaa = current_time( 'timestamp', 0 );
+
+printf( __('Aktuální datum a čas:','kalendar_cz')); echo " " . Date ("d. n. Y, H:i", $caaaa);
 echo ", ";
 
 $kalibrator = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='kalibrace_tydne'");
@@ -104,7 +102,6 @@ $dnesek = StrFTime("%W",$caaaa) + $velikost_kalibrace;
 
 
 echo "<p>";printf( __('* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress správně (nastavení/obecné), nesprávné zobrazení času může být nesprávným nastavením časové zóny','kalendar_cz'));echo "</p>";
-echo "<p>";printf( __('* V tuto chvíli je podporovaný formát data jako DDMMYYYY','kalendar_cz'));echo "</p>";
 //hlavicka s casem
 
 

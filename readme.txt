@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, slovenský kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.9.1
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 
 == Description ==
 = CZ =
@@ -15,7 +15,7 @@ Stable tag: 1.5.0
 * Plugin zobrazuje hodiny, čas, kto má dnes a zajtra sviatok, párny, nepárny týždeň, číslo týždňa a počet dní do Vianoc či do konca roka. To všetko v postranným panelu (možnosť  použiť  ako widget).
 
 = EN =
-* Plugin show the date, time, days to the Christmas and the czech festivals on sidebar (you can use it as widget).
+* Plugin show the date, time, days to the Christmas and the cz/sk festivals on sidebar (you can use it as widget).
 
 == Installation ==
 = CZ =
@@ -45,6 +45,12 @@ V případě nalezení chyby nás prosím upozorněte na http://phgame.cz/kalend
 
 
 == Changelog ==
+= 1.5.1 =
+* Plugin si nyní poradí s každým z nastavení datu ve WordPressu, nemusí být tedy striktně dodržen formát DD.MM.YYYY, nyní je to libovolné
+* Rychlost pluginu byla zvýšena
+* Byly doopraveny další drobné chyby
+* Plugin byl přidán na nástěnku (dashboard)
+
 = 1.5.0 =
 * Do administrace byl přidán kalibrátor na číslo týdne (na některých webech se stávalo, že šel týden o jeden jinak)
 * Spolu s týdnem byla zkalibrována i funkce, která hlásí, zda je týden lichý či sudý
