@@ -3,7 +3,7 @@
 Plugin Name: Kalendář / Calendar
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku.
-Version: 1.4.2
+Version: 1.5.0
 Author: Webster.K
 Author URI: http://phgame.cz/kalendar
 */
@@ -29,6 +29,7 @@ while ($radek = mysql_fetch_array($existuje)):
 	elseif(isset($radek["typ"]) && $radek["typ"]=="odsazeni_vrsek"){$exi_odsazeni_vrsek=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="centrovani"){$exi_centrovani=1;}
 	elseif(isset($radek["typ"]) && $radek["typ"]=="barva_text"){$exi_barva=1;}
+	elseif(isset($radek["typ"]) && $radek["typ"]=="kalibrace_tydne"){$kalibrace_tydne=1;}
 endwhile;
 	if(isset($exi_cas) && $exi_cas==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit) VALUES ('1', 'cas', '1')");
@@ -63,7 +64,9 @@ endwhile;
 	if(isset($exi_centrovani) && $exi_centrovani==1){}else{
 		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit, hodnota) VALUES ('0', 'centrovani', '0','left')");
 	}	
-
+	if(isset($kalibrace_tydne) && $kalibrace_tydne==1){}else{
+		mysql_query("INSERT INTO ".$wpdb->prefix."plugin_websters_kalendar (cislo,typ,zobrazit, hodnota) VALUES ('0', 'kalibrace_tydne', '0','1')");
+	}	
 }
 
 add_action('activate_kalendar-cz/kalendar_cz.php', 'kalendar_cz_install');
@@ -673,12 +676,34 @@ else{
 }
 
 function get_sudy_lichy_tyden(){
-	$dnesek = StrFTime("%W",time()) + 1;
+	$cas_ted = date_i18n(get_option('time_format'));
+	$prevod_hodiny = split('\.', $cas_ted);
+	$prevod_datum = split('\.', date_i18n( get_option('date_format')));
+	$caaaa = MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
+
+	global $wpdb;
+	$nastaveni = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='kalibrace_tydne'");
+	while($nastaveni_casu = mysql_fetch_array($nastaveni)):
+		$prefix_casu = $nastaveni_casu["hodnota"];
+	endwhile;
+	
+	$dnesek = StrFTime("%W",$caaaa) + $prefix_casu;
 	if($dnesek%2==0){return __('Je sudý týden','kalendar_cz');}else{return __('Je lichý týden','kalendar_cz');}
 }
 
 function get_cislo_tydne(){
-	$dnesek = StrFTime("%W",time()) + 1;
+	$cas_ted = date_i18n(get_option('time_format'));
+	$prevod_hodiny = split('\.', $cas_ted);
+	$prevod_datum = split('\.', date_i18n( get_option('date_format')));
+	$caaaa = MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
+
+	
+	global $wpdb;
+	$nastaveni = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='kalibrace_tydne'");
+	while($nastaveni_casu = mysql_fetch_array($nastaveni)):
+		$prefix_casu = $nastaveni_casu["hodnota"];
+	endwhile;
+	$dnesek = StrFTime("%W",$caaaa) + $prefix_casu;
 	if($dnesek <=9){
 		$samotny_cislo = str_replace("0","",$dnesek);
 		return __('Je ','kalendar_cz') . $samotny_cislo . __('týden','kalendar_cz');

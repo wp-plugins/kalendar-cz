@@ -63,18 +63,73 @@ fclose($soubor);
 printf( __('Uloženo','kalendar_cz')); echo "<br>";
 }
 
+
+
+
+
+if (isset($_POST['kalendar-cz-submit3'])) {
+global $wpdb;
+
+mysql_query("UPDATE ".$wpdb->prefix."plugin_websters_kalendar SET hodnota='" . $_POST["kalibrace_tydne_plus"] . "' WHERE typ='kalibrace_tydne'");
+printf( __('Uloženo','kalendar_cz')); echo "<br>";
+}
+
+
+
 //po odeslani formulare
 //hlavicka s casem
 $cas_ted = date_i18n(get_option('time_format'));
 $prevod_hodiny = split('\.', $cas_ted);
 $prevod_datum = split('\.', date_i18n( get_option('date_format')));
 $caaaa = MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]) . "<br>";
-printf( __('Aktuální datum a čas:','kalendar_cz')); echo " " . Date ("d. n. Y, H:i", MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2])) . "<br>";
+printf( __('Aktuální datum a čas:','kalendar_cz')); echo " " . Date ("d. n. Y, H:i", MkTime ((int)$prevod_hodiny[0], (int)$prevod_hodiny[1], (int)0, (int)$prevod_datum[1], (int)$prevod_datum[0], (int)$prevod_datum[2]));
+echo ", ";
+
+$kalibrator = mysql_query("SELECT * FROM ".$wpdb->prefix."plugin_websters_kalendar WHERE typ='kalibrace_tydne'");
+while($kalibrac = mysql_fetch_array($kalibrator)):
+	$velikost_kalibrace = $kalibrac["hodnota"];
+endwhile;
+
+$dnesek = StrFTime("%W",$caaaa) + $velikost_kalibrace;
+	if($dnesek <=9){
+		$samotny_cislo = str_replace("0","",$dnesek);
+		echo $samotny_cislo . " " . __('týden','kalendar_cz');
+	}else{
+		echo $dnesek . " " . __('týden','kalendar_cz');
+	}
+	echo "<br>";
+
+
+
+
 
 echo "<p>";printf( __('* Pokud je tento čas a datum nesprávné, nastavte prosím Wordpress správně (nastavení/obecné), nesprávné zobrazení času může být nesprávným nastavením časové zóny','kalendar_cz'));echo "</p>";
+echo "<p>";printf( __('* V tuto chvíli je podporovaný formát data jako DDMMYYYY','kalendar_cz'));echo "</p>";
 //hlavicka s casem
 
 
+
+
+
+//kalibrace tydne
+?>
+<fieldset style="border:1px solid black;"><legend style="margin-left:20px;"><?php printf( __('Kalibrace čísla týdne','kalendar_cz'));?>
+</legend><blockquote>
+
+<form action="" method="post">
+<?php printf( __('Kolik týdnu se má přidat:','kalendar_cz'));?> <input type="text" name="kalibrace_tydne_plus" value="<?php echo $velikost_kalibrace;?>">
+<input type="submit" name="kalendar-cz-submit3" value="<?php printf( __(' Uložit ','kalendar_cz'));?>" />
+</form>
+<p><?php printf( __('* Číslo týdne zadávejte pouze jako číslo. Toto číslo značí, o kolik bude posunuto počítání týdnů.','kalendar_cz'));?></p>
+</blockquote>
+</fieldset>
+<br>
+
+
+
+
+
+<?php
 
 
 echo "<fieldset style=\"border:1px solid black;\"><legend style=\"margin-left:20px;\">"; printf( __('Co se bude na webu vypisovat','kalendar_cz')); echo "</legend><blockquote>";

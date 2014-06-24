@@ -3,8 +3,8 @@ Contributors: Webster.K
 Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, slovenský kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
-Tested up to: 3.6
-Stable tag: 1.4.2
+Tested up to: 3.9.1
+Stable tag: 1.5.0
 
 == Description ==
 = CZ =
@@ -45,6 +45,11 @@ V případě nalezení chyby nás prosím upozorněte na http://phgame.cz/kalend
 
 
 == Changelog ==
+= 1.5.0 =
+* Do administrace byl přidán kalibrátor na číslo týdne (na některých webech se stávalo, že šel týden o jeden jinak)
+* Spolu s týdnem byla zkalibrována i funkce, která hlásí, zda je týden lichý či sudý
+* Opraveny drobné chyby, které vznikali při aktualizaci na novější verzi WordPressu
+
 = 1.4.2 =
 * Opravena chyba, která způsobovala, že prvních 9 týdnů každého roku se nezobrazovalo číslo v pluginu
 
