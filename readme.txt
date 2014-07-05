@@ -45,6 +45,9 @@ V případě nalezení chyby nás prosím upozorněte na http://phgame.cz/kalend
 
 
 == Changelog ==
+= 1.5.2 =
+* Byla opravena SK verze administrace
+
 = 1.5.1 =
 * Plugin si nyní poradí s každým z nastavení datu ve WordPressu, nemusí být tedy striktně dodržen formát DD.MM.YYYY, nyní je to libovolné
 * Rychlost pluginu byla zvýšena
