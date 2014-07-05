@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalendar_cz-1.5.0\n"
 "POT-Creation-Date: 2013-08-21 13:42+0100\n"
-"PO-Revision-Date: 2014-06-24 16:11+0100\n"
+"PO-Revision-Date: 2014-07-05 22:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1847,20 +1847,20 @@ msgstr "Silvester"
 
 #: kalendar_cz_admin.php:97
 msgid "Kalibrace čísla týdne"
-msgstr "Kalibrace čísla týdne"
+msgstr "Kalibrácia čísla týždňa"
 
 #: kalendar_cz_admin.php:99
 msgid "Kolik týdnu se má přidat:"
-msgstr "Kolik týdnu se má přidat:"
+msgstr "Koľko týždňov sa ma pridať:"
 
 #: kalendar_cz_admin.php:100
 msgid ""
 "* Číslo týdne zadávejte pouze jako číslo. Toto číslo značí, o kolik bude "
 "posunuto počítání týdnů."
 msgstr ""
-"* Číslo týdne zadávejte pouze jako číslo. Toto číslo značí, o kolik bude "
-"posunuto počítání týdnů."
+"* Číslo týždňa zadávajte iba ako číslo. Toto číslo udáva, o koľko sa  "
+"posunie počítanie týždňov."
 
 #: kalendar_cz.php
 msgid ", pokud je čas špatný, přejděte prosím do nastavení pluginu."
-msgstr ", pokud je čas špatný, přejděte prosím do nastavení pluginu."
+msgstr ", pokiaľ je čas nesprávny, prejdite prosím do nastavenia pluginu."

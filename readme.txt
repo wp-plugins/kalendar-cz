@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, slovenský kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.9.1
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 
 == Description ==
 = CZ =
