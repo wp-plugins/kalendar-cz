@@ -3,7 +3,7 @@
 Plugin Name: Kalendář / Calendar
 Plugin URI: http://phgame.cz
 Description: Zobrazuje hodiny, čas, kdo má dnes a zítra svátek, sudý/lichý týden, číslo týdne a počet dní do Vánoc či konce roku.
-Version: 1.5.2
+Version: 1.5.3
 Author: Webster.K
 Author URI: http://phgame.cz/kalendar
 */
@@ -491,17 +491,17 @@ $radku = mysql_num_rows($data);
 //$radku = $wpdb->get_row($data);
 
 //pokud nekdo nahodou svatek nema, viz statni svatek, DNES
-if($pred_text_dnes==0 OR $$pred_text_dnes==5 OR $pred_text_dnes==121 OR $pred_text_dnes==186 OR $pred_text_dnes==187 OR $pred_text_dnes==301 OR $pred_text_dnes==306 OR $pred_text_dnes==358 OR $pred_text_dnes==359 OR $pred_text_dnes==360 OR $pred_text_dnes==366){
-	$vypis_pred_svatek = "Dnes je ";
+if($pred_text_dnes==0 OR $$pred_text_dnes==5 OR $pred_text_dnes==121 OR $pred_text_dnes==186 OR $pred_text_dnes==187 OR $pred_text_dnes==300 OR $pred_text_dnes==306 OR $pred_text_dnes==358 OR $pred_text_dnes==359 OR $pred_text_dnes==360 OR $pred_text_dnes==366){
+	$vypis_pred_svatek = __('Dnes je ','kalendar_cz');
 }else{
-	$vypis_pred_svatek = "Svátek má ";
+	$vypis_pred_svatek = __('Svátek má ','kalendar_cz');
 }
 
 //pokud nekdo nahodou svatek nema, viz statni svatek ZITRA
-if($pred_text_zitra==0 OR $pred_text_zitra==5 OR $pred_text_zitra==121 OR $pred_text_zitra==186 OR $pred_text_zitra==187 OR $pred_text_zitra==301 OR $pred_text_zitra==306 OR $pred_text_zitra==358 OR $pred_text_zitra==359 OR $pred_text_zitra==360 OR $pred_text_zitra==366){
-	$vypis_pred_svatek_a = "Zítra je ";
+if($pred_text_zitra==0 OR $pred_text_zitra==5 OR $pred_text_zitra==121 OR $pred_text_zitra==186 OR $pred_text_zitra==187 OR $pred_text_zitra==300 OR $pred_text_zitra==306 OR $pred_text_zitra==358 OR $pred_text_zitra==359 OR $pred_text_zitra==360 OR $pred_text_zitra==366){
+	$vypis_pred_svatek_a = __('Zítra je ','kalendar_cz');
 }else{
-	$vypis_pred_svatek_a = "Zítra má svátek ";
+	$vypis_pred_svatek_a = __('Zítra má svátek ','kalendar_cz');
 }
 
 while ($dat = mysql_fetch_array($data)):
