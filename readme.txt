@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, slovenský kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 3.9.1
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 
 == Description ==
 = CZ =
@@ -45,6 +45,9 @@ V případě nalezení chyby nás prosím upozorněte na http://phgame.cz/kalend
 
 
 == Changelog ==
+= 1.5.4 =
+* Opraveno několik drobností v SK verzi
+
 = 1.5.3 =
 * Opravena chyba ve slovenském výpisu Dnes je, Svátek má
 * Opravena chyba u výpisu Státního svátku - vzniku Československa
