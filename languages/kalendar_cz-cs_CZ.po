@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kalendar_cz-1.5.0\n"
 "POT-Creation-Date: 2013-08-21 13:42+0100\n"
-"PO-Revision-Date: 2014-10-28 17:44+0100\n"
+"PO-Revision-Date: 2014-10-28 17:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,14 @@ msgstr "Dnes je "
 #: kalendar_cz.php:142
 msgid "Svátek má "
 msgstr "Svátek má "
+
+#: kalendar_cz.php:500
+msgid "Zítra je "
+msgstr "Zítra je "
+
+#: kalendar_cz.php:500
+msgid "Zítra má svátek "
+msgstr "Zítra má svátek "
 
 #: kalendar_cz.php:254
 msgid "Aktuální čas: "
