@@ -110,22 +110,39 @@ echo "<p>";printf( __('* Pokud je tento čas a datum nesprávné, nastavte pros�
 
 //kalibrace tydne
 ?>
-<fieldset style="border:1px solid black;"><legend style="margin-left:20px;"><?php printf( __('Kalibrace čísla týdne','kalendar_cz'));?>
-</legend><blockquote>
+<div id="kalibrace_donate" style="width:100%;">
+	<div id="kalibrace" style="width:69%;float:left;">
+		<fieldset style="border:1px solid black; height:120px;"><legend style="margin-left:20px;"><?php printf( __('Kalibrace čísla týdne','kalendar_cz'));?>
+		</legend><blockquote>
 
-<form action="" method="post">
-<?php printf( __('Kolik týdnu se má přidat:','kalendar_cz'));?> <input type="text" name="kalibrace_tydne_plus" value="<?php echo $velikost_kalibrace;?>">
-<input type="submit" name="kalendar-cz-submit3" value="<?php printf( __(' Uložit ','kalendar_cz'));?>" />
-</form>
-<p><?php printf( __('* Číslo týdne zadávejte pouze jako číslo. Toto číslo značí, o kolik bude posunuto počítání týdnů.','kalendar_cz'));?></p>
-</blockquote>
-</fieldset>
+		<form action="" method="post">
+		<?php printf( __('Kolik týdnu se má přidat:','kalendar_cz'));?> <input type="text" name="kalibrace_tydne_plus" value="<?php echo $velikost_kalibrace;?>">
+		<input type="submit" name="kalendar-cz-submit3" value="<?php printf( __(' Uložit ','kalendar_cz'));?>" />
+		</form>
+		<p><?php printf( __('* Číslo týdne zadávejte pouze jako číslo. Toto číslo značí, o kolik bude posunuto počítání týdnů.','kalendar_cz'));?></p>
+		</blockquote>
+		</fieldset>
+	</div>
+	<div id="donate" style="width:29%;float:right;">
+		<fieldset style="border:1px solid black; height:120px;">
+		<legend style="margin-left:20px;"><?php printf( __('Líbí se Vám tento plugin? Podpořte jej','kalendar_cz'));?></legend>
+		<div style="width:160px;margin-left:auto;margin-right:auto;margin-top:20px;">
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="RQC2YYEQW3A8E">
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			</form>
+		</div>
+		</fieldset>
+	</div>
+</div>
 <br>
 
 
 
 
-
+<div id="vypis_na_webu" style="width:100%;float:left;">
 <?php
 
 
@@ -158,13 +175,8 @@ echo '</table><input type="submit" name="kalendar-cz-submit" value="'; printf( _
 <p><?php printf( __('* Pokud nebudete některou z částí (datum, čas, svátky...) používat, přesuňte jí na konec, u některých témat tímto předejdete chybám','kalendar_cz'));?></p>
 </blockquote>
 </fieldset>
-
-
-
-
-
-
-<br>
+</div>
+<div id="nastaveni_vzhledu" style="width:100%;float:left;">
 <fieldset style="border:1px solid black;">
 <legend  style="margin-left:20px;"><?php printf( __('Jednoduché nastavení vzhledu','kalendar_cz'));?></legend>
 <blockquote>
@@ -220,10 +232,9 @@ endwhile;
 <p><?php printf( __('* Hodnotu pro odsazení zadávejte pouze jako číslo','kalendar_cz'));?></p>
 </blockquote>
 </fieldset>
+</div>
+<div id="css_styly" style="width:100%;float:left;">
 
-
-
-<br>
 <fieldset style="border:1px solid black;">
 <legend style="margin-left:20px;"><?php printf( __('Vlastní CSS styly','kalendar_cz'));?></legend>
 <blockquote>
@@ -253,10 +264,26 @@ echo "<form method=\"post\"><textarea name=\"cssko\" cols=\"100\" rows=\"8\">" .
 <p><?php printf( __('* Tato funkce je pro zkušené uživatele','kalendar_cz'));?></p>
 <p><?php printf( __('* Styly uvedené nalevo jsou ty, které jasně definují jednotlivé řádky pluginu','kalendar_cz'));?></p>
 </blockquote>
-</fieldset><br>
+</fieldset>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="paticka_kalendare" style="width:100%;float:left;">
 <p><?php printf( __('* Plugin je stále ve vývoji, oficiální stránka:','kalendar_cz'));?> <a href="http://phgame.cz/kalendar">http://phgame.cz/kalendar</a></p>
 <p><?php printf( __('* Pokud Vám něco v pluginu chybí, neváhejte na web napsat, pokud to bude v našich silách, rozšíření o které žádáte v nové verzi naleznete','kalendar_cz'));?></p>
-
+</div>
 
 <?php
 }
