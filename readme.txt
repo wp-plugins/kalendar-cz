@@ -4,7 +4,7 @@ Donate link:
 Tags: czech, sidebar, calendar, widget, kalendář, český kalendář, slovenský kalendář, svátky, hodiny, dny, měsíce, time, date
 Requires at least: 2.5
 Tested up to: 4.1.1
-Stable tag: 1.5.5
+Stable tag: 2.0
 
 == Description ==
 = CZ =
@@ -45,6 +45,12 @@ V případě nalezení chyby nás prosím upozorněte na http://phgame.cz/kalend
 
 
 == Changelog ==
+= 2.0 =
+* Změna celého jádra pluginu
+* Plugin je nyní rychlejší, nedělá tolik chyb a celkově je přívětivější pro WordPress
+* Změněna celá administrace, nyní je graficky lepší a lépe zapadá do prostředí WordPressu
+* Opraveny drobné chyby při práci s databázi WordPressu
+
 = 1.5.5 =
 * Opraveno několik drobností
 
